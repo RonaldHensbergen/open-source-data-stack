@@ -9,7 +9,7 @@ from great_expectations_provider.operators.great_expectations import (
 )
 
 DAG_ID = "model_level_dbt_great_expectations_dag"
-DAG_OWNER = "luciano.naveiro"
+DAG_OWNER = "ronaldhensbergen"
 
 DBT_PROJECT_PATH = "/opt/dbt/jaffle_shop"
 DBT_GLOBAL_CLI_FLAGS = "--no-write-json"

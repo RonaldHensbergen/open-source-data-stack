@@ -6,7 +6,7 @@ from airflow.utils.dates import datetime, timedelta
 from dbt_dag_parser_v2 import DbtDagParser
 
 DAG_ID = "model_level_dbt_dag"
-DAG_OWNER = "luciano.naveiro"
+DAG_OWNER = "ronaldhensbergen"
 
 DBT_PROJECT_PATH = "/opt/dbt/jaffle_shop"
 DBT_GLOBAL_CLI_FLAGS = "--no-write-json"

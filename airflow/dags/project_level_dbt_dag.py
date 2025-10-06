@@ -6,7 +6,7 @@ from airflow.utils.dates import datetime
 from airflow.utils.dates import timedelta
 
 DAG_ID = "project_level_dbt_dag"
-DAG_OWNER = "luciano.naveiro"
+DAG_OWNER = "ronaldhensbergen"
 
 DBT_PROJECT_PATH = "/opt/dbt/jaffle_shop"
 
