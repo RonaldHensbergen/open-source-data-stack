@@ -38,7 +38,6 @@
 #
 # Feel free to modify this file to suit your needs.
 ---
-version: '3'
 x-airflow-common:
   &airflow-common
   # In order to add custom dependencies or upgrade provider packages you can use your extended image.
@@ -77,23 +76,23 @@ x-airflow-common:
       condition: service_healthy
     postgres:
       condition: service_healthy
-  volumes:
-    - ./airflow/dags:/opt/airflow/dags
-    - ./airflow/logs:/opt/airflow/logs
-    - ./airflow/plugins:/opt/airflow/plugins
-    - ./dbt:/opt/dbt
-    - ./great_expectations:/opt/great_expectations
-  user: "${AIRFLOW_UID:-50000}:0"
-  depends_on:
-    &airflow-common-depends-on
-    redis:
-      condition: service_healthy
-    postgres:
-      condition: service_healthy
+#  volumes:
+#    - ./airflow/dags:/opt/airflow/dags
+#    - ./airflow/logs:/opt/airflow/logs
+#    - ./airflow/plugins:/opt/airflow/plugins
+#    - ./dbt:/opt/dbt
+#    - ./great_expectations:/opt/great_expectations
+#  user: "${AIRFLOW_UID:-50000}:0"
+#  depends_on:
+#    &airflow-common-depends-on
+#    redis:
+#      condition: service_healthy
+#    postgres:
+#      condition: service_healthy
 
 services:
   postgres:
-    image: postgres:13
+    image: postgres:18
     environment:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
@@ -290,7 +289,7 @@ services:
 
   # Define local postgres to store the data
   postgres_local:
-    image: postgres:13
+    image: postgres:18
     ports:
       - "5432:5432"
     environment:
@@ -304,7 +303,7 @@ services:
             retries: 10
 
   create-db:
-    build: 
+    build:
       dockerfile: ./db.Dockerfile
     environment:
       - POSTGRES_PASSWORD=docker
@@ -334,6 +333,6 @@ services:
     ports:
       - "81:80"
     container_name: "great_expectations_docs"
-    
+
 volumes:
   postgres-db-volume:
