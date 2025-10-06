@@ -23992,3 +23992,1701 @@ File Path                                                    PID    Runtime     
 ================================================================================
 [2022-06-04 20:42:09,557] {manager.py:1051} INFO - Finding 'running' jobs without a recent heartbeat
 [2022-06-04 20:42:09,560] {manager.py:1055} INFO - Failing jobs without heartbeat after 2022-06-04 20:37:09.560771+00:00
+[2025-10-06T20:04:36.518+0000] {manager.py:488} INFO - Processing files using up to 2 processes at a time 
+[2025-10-06T20:04:36.519+0000] {manager.py:489} INFO - Process each file at most once every 30 seconds
+[2025-10-06T20:04:36.520+0000] {manager.py:490} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-10-06T20:04:36.520+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T20:04:36.526+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T20:04:36.704+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py     51  0.12s             0           0
+/opt/airflow/dags/project_level_dbt_dag.py                      52  0.11s             0           0
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0
+/opt/airflow/dags/model_level_dbt_dag.py                                              0           0
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0
+================================================================================
+[2025-10-06T20:05:07.229+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  7.55s           2025-10-06T20:04:44
+/opt/airflow/dags/dbt_dag_parser.py                             80  0.01s             0           0  0.05s           2025-10-06T20:04:37
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:04:37
+/opt/airflow/dags/project_level_dbt_dag.py                      79  0.01s             1           0  0.41s           2025-10-06T20:04:37
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.25s           2025-10-06T20:04:37
+================================================================================
+[2025-10-06T20:05:37.669+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.35s           2025-10-06T20:05:18
+/opt/airflow/dags/dbt_dag_parser.py                            110  0.01s             0           0  0.05s           2025-10-06T20:05:07
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:05:07
+/opt/airflow/dags/project_level_dbt_dag.py                     109  0.01s             1           0  0.11s           2025-10-06T20:05:07
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.15s           2025-10-06T20:05:07
+================================================================================
+[2025-10-06T20:06:07.980+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.44s           2025-10-06T20:05:52
+/opt/airflow/dags/dbt_dag_parser.py                            138  0.01s             0           0  0.05s           2025-10-06T20:05:37
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:05:37
+/opt/airflow/dags/project_level_dbt_dag.py                     137  0.01s             1           0  0.11s           2025-10-06T20:05:37
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.15s           2025-10-06T20:05:37
+================================================================================
+[2025-10-06T20:06:38.066+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.82s           2025-10-06T20:06:28
+/opt/airflow/dags/dbt_dag_parser.py                            165  0.01s             0           0  0.05s           2025-10-06T20:06:08
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:06:08
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.11s           2025-10-06T20:06:08
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T20:06:08
+================================================================================
+[2025-10-06T20:07:08.470+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.24s           2025-10-06T20:07:02
+/opt/airflow/dags/dbt_dag_parser.py                            192  0.01s             0           0  0.05s           2025-10-06T20:06:38
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:06:38
+/opt/airflow/dags/project_level_dbt_dag.py                     191  0.02s             1           0  0.11s           2025-10-06T20:06:38
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T20:06:38
+================================================================================
+[2025-10-06T20:07:38.944+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.41s           2025-10-06T20:07:36
+/opt/airflow/dags/dbt_dag_parser.py                            217  0.02s             0           0  0.09s           2025-10-06T20:07:08
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.09s           2025-10-06T20:07:08
+/opt/airflow/dags/project_level_dbt_dag.py                     216  0.03s             1           0  0.21s           2025-10-06T20:07:08
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.25s           2025-10-06T20:07:08
+================================================================================
+[2025-10-06T20:08:09.570+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py    234  3.03s             0           1  3.41s           2025-10-06T20:07:36
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.15s           2025-10-06T20:07:39
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.18s           2025-10-06T20:07:39
+/opt/airflow/dags/project_level_dbt_dag.py                     245  0.01s             1           0  0.33s           2025-10-06T20:07:39
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.40s           2025-10-06T20:07:39
+================================================================================
+[2025-10-06T20:08:40.090+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.40s           2025-10-06T20:08:10
+/opt/airflow/dags/dbt_dag_parser.py                            268  0.02s             0           0  0.09s           2025-10-06T20:08:09
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.14s           2025-10-06T20:08:10
+/opt/airflow/dags/project_level_dbt_dag.py                     267  0.05s             1           0  0.26s           2025-10-06T20:08:09
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.34s           2025-10-06T20:08:10
+================================================================================
+[2025-10-06T20:09:10.405+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.69s           2025-10-06T20:08:45
+/opt/airflow/dags/dbt_dag_parser.py                            292  0.00s             0           0  0.22s           2025-10-06T20:08:40
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.09s           2025-10-06T20:08:40
+/opt/airflow/dags/project_level_dbt_dag.py                     291  0.01s             1           0  0.24s           2025-10-06T20:08:40
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.30s           2025-10-06T20:08:40
+================================================================================
+[2025-10-06T20:09:36.707+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T20:09:36.709+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T20:09:40.756+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.08s           2025-10-06T20:09:19
+/opt/airflow/dags/dbt_dag_parser.py                            314  0.01s             0           0  0.08s           2025-10-06T20:09:10
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.10s           2025-10-06T20:09:11
+/opt/airflow/dags/project_level_dbt_dag.py                     313  0.02s             1           0  0.16s           2025-10-06T20:09:10
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.20s           2025-10-06T20:09:11
+================================================================================
+[2025-10-06T20:10:11.173+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.55s           2025-10-06T20:09:53
+/opt/airflow/dags/dbt_dag_parser.py                            337  0.01s             0           0  0.10s           2025-10-06T20:09:40
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.11s           2025-10-06T20:09:41
+/opt/airflow/dags/project_level_dbt_dag.py                     336  0.01s             1           0  0.13s           2025-10-06T20:09:40
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.20s           2025-10-06T20:09:42
+================================================================================
+[2025-10-06T20:10:41.511+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.58s           2025-10-06T20:10:27
+/opt/airflow/dags/dbt_dag_parser.py                            361  0.01s             0           0  0.07s           2025-10-06T20:10:11
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:10:12
+/opt/airflow/dags/project_level_dbt_dag.py                     360  0.01s             1           0  0.12s           2025-10-06T20:10:11
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.13s           2025-10-06T20:10:12
+================================================================================
+[2025-10-06T20:11:11.817+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.41s           2025-10-06T20:11:03
+/opt/airflow/dags/dbt_dag_parser.py                            384  0.01s             0           0  0.05s           2025-10-06T20:10:41
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:10:42
+/opt/airflow/dags/project_level_dbt_dag.py                     383  0.02s             1           0  0.11s           2025-10-06T20:10:41
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T20:10:42
+================================================================================
+[2025-10-06T20:11:42.156+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.21s           2025-10-06T20:11:38
+/opt/airflow/dags/dbt_dag_parser.py                            407  0.01s             0           0  0.06s           2025-10-06T20:11:11
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:11:12
+/opt/airflow/dags/project_level_dbt_dag.py                     406  0.02s             1           0  0.15s           2025-10-06T20:11:11
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.15s           2025-10-06T20:11:13
+================================================================================
+[2025-10-06T20:12:12.505+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.73s           2025-10-06T20:12:12
+/opt/airflow/dags/dbt_dag_parser.py                            431  0.01s             0           0  0.08s           2025-10-06T20:11:42
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.07s           2025-10-06T20:11:43
+/opt/airflow/dags/project_level_dbt_dag.py                     430  0.02s             1           0  0.12s           2025-10-06T20:11:42
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.15s           2025-10-06T20:11:43
+================================================================================
+[2025-10-06T20:12:42.831+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py    449  0.02s             0           1  3.73s           2025-10-06T20:12:12
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T20:12:12
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:12:13
+/opt/airflow/dags/project_level_dbt_dag.py                     450  0.01s             1           0  0.12s           2025-10-06T20:12:12
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T20:12:13
+================================================================================
+[2025-10-06T20:13:13.052+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.14s           2025-10-06T20:12:46
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.12s           2025-10-06T20:12:43
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.09s           2025-10-06T20:12:44
+/opt/airflow/dags/project_level_dbt_dag.py                     471  0.01s             1           0  0.23s           2025-10-06T20:12:43
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.33s           2025-10-06T20:12:44
+================================================================================
+[2025-10-06T20:13:43.107+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.39s           2025-10-06T20:13:22
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.11s           2025-10-06T20:13:13
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:13:14
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.28s           2025-10-06T20:13:13
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.15s           2025-10-06T20:13:14
+================================================================================
+[2025-10-06T20:14:13.340+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.42s           2025-10-06T20:13:55
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.11s           2025-10-06T20:13:43
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.14s           2025-10-06T20:13:45
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.24s           2025-10-06T20:13:44
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.27s           2025-10-06T20:13:45
+================================================================================
+[2025-10-06T20:14:36.953+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T20:14:36.955+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T20:14:43.986+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.30s           2025-10-06T20:14:31
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.19s           2025-10-06T20:14:14
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.11s           2025-10-06T20:14:15
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.20s           2025-10-06T20:14:14
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.31s           2025-10-06T20:14:15
+================================================================================
+[2025-10-06T20:15:14.372+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.51s           2025-10-06T20:15:04
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T20:14:45
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.09s           2025-10-06T20:14:46
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.17s           2025-10-06T20:14:45
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.18s           2025-10-06T20:14:46
+================================================================================
+[2025-10-06T20:15:44.785+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.52s           2025-10-06T20:15:39
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T20:15:15
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.11s           2025-10-06T20:15:16
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.16s           2025-10-06T20:15:15
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.21s           2025-10-06T20:15:16
+================================================================================
+[2025-10-06T20:16:15.025+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.97s           2025-10-06T20:16:14
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.08s           2025-10-06T20:15:45
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:15:46
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.17s           2025-10-06T20:15:45
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T20:15:47
+================================================================================
+[2025-10-06T20:16:45.321+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py    633  1.02s             0           1  3.97s           2025-10-06T20:16:14
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T20:16:16
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:16:17
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.14s           2025-10-06T20:16:16
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.18s           2025-10-06T20:16:17
+================================================================================
+[2025-10-06T20:17:15.737+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.37s           2025-10-06T20:16:48
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T20:16:46
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:16:47
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.12s           2025-10-06T20:16:46
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.16s           2025-10-06T20:16:47
+================================================================================
+[2025-10-06T20:17:46.059+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.05s           2025-10-06T20:17:23
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.07s           2025-10-06T20:17:16
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:17:17
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.16s           2025-10-06T20:17:16
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.16s           2025-10-06T20:17:17
+================================================================================
+[2025-10-06T20:18:16.497+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.03s           2025-10-06T20:17:58
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T20:17:47
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.14s           2025-10-06T20:17:48
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.19s           2025-10-06T20:17:47
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.18s           2025-10-06T20:17:48
+================================================================================
+[2025-10-06T20:18:46.824+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.51s           2025-10-06T20:18:32
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.07s           2025-10-06T20:18:17
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:18:18
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.14s           2025-10-06T20:18:17
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.15s           2025-10-06T20:18:18
+================================================================================
+[2025-10-06T20:19:17.267+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.11s           2025-10-06T20:19:07
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T20:18:47
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.14s           2025-10-06T20:18:49
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.14s           2025-10-06T20:18:47
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.26s           2025-10-06T20:18:49
+================================================================================
+[2025-10-06T20:19:37.594+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T20:19:37.597+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T20:19:47.659+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.50s           2025-10-06T20:19:43
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T20:19:18
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.15s           2025-10-06T20:19:19
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.13s           2025-10-06T20:19:18
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.18s           2025-10-06T20:19:19
+================================================================================
+[2025-10-06T20:20:18.038+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.95s           2025-10-06T20:20:18
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T20:19:48
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.15s           2025-10-06T20:19:49
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.18s           2025-10-06T20:19:48
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.20s           2025-10-06T20:19:49
+================================================================================
+[2025-10-06T20:20:48.457+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py    813  0.01s             0           1  3.95s           2025-10-06T20:20:18
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.11s           2025-10-06T20:20:19
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.12s           2025-10-06T20:20:20
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.20s           2025-10-06T20:20:19
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.22s           2025-10-06T20:20:20
+================================================================================
+[2025-10-06T20:21:19.066+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.49s           2025-10-06T20:20:52
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.11s           2025-10-06T20:20:49
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.12s           2025-10-06T20:20:51
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.25s           2025-10-06T20:20:49
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.28s           2025-10-06T20:20:51
+================================================================================
+[2025-10-06T20:21:49.593+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.09s           2025-10-06T20:21:27
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.22s           2025-10-06T20:21:20
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.11s           2025-10-06T20:21:21
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.35s           2025-10-06T20:21:20
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.21s           2025-10-06T20:21:21
+================================================================================
+[2025-10-06T20:22:19.789+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.82s           2025-10-06T20:22:01
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.08s           2025-10-06T20:21:50
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.12s           2025-10-06T20:21:51
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.19s           2025-10-06T20:21:50
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.24s           2025-10-06T20:21:51
+================================================================================
+[2025-10-06T20:22:49.932+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.77s           2025-10-06T20:22:37
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.11s           2025-10-06T20:22:20
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.14s           2025-10-06T20:22:22
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.19s           2025-10-06T20:22:20
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.19s           2025-10-06T20:22:22
+================================================================================
+[2025-10-06T20:23:20.361+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.23s           2025-10-06T20:23:13
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T20:22:51
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.10s           2025-10-06T20:22:52
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.15s           2025-10-06T20:22:51
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.15s           2025-10-06T20:22:53
+================================================================================
+[2025-10-06T20:23:50.446+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.84s           2025-10-06T20:23:47
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T20:23:21
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:23:22
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.13s           2025-10-06T20:23:21
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.15s           2025-10-06T20:23:23
+================================================================================
+[2025-10-06T20:24:20.779+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py    977  3.02s             0           1  3.84s           2025-10-06T20:23:47
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.12s           2025-10-06T20:23:51
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:23:52
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.21s           2025-10-06T20:23:51
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T20:23:53
+================================================================================
+[2025-10-06T20:24:38.096+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T20:24:38.099+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T20:24:51.179+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.68s           2025-10-06T20:24:21
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T20:24:21
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:24:23
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.17s           2025-10-06T20:24:22
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.15s           2025-10-06T20:24:24
+================================================================================
+[2025-10-06T20:25:21.283+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.01s           2025-10-06T20:24:57
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.16s           2025-10-06T20:24:52
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.25s           2025-10-06T20:24:53
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.40s           2025-10-06T20:24:52
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.17s           2025-10-06T20:24:54
+================================================================================
+[2025-10-06T20:25:51.440+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.02s           2025-10-06T20:25:32
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.11s           2025-10-06T20:25:23
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:25:24
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.19s           2025-10-06T20:25:23
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T20:25:25
+================================================================================
+[2025-10-06T20:26:21.492+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.80s           2025-10-06T20:26:06
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T20:25:53
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:25:54
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.11s           2025-10-06T20:25:53
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.16s           2025-10-06T20:25:55
+================================================================================
+[2025-10-06T20:26:51.636+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.58s           2025-10-06T20:26:40
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T20:26:23
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:26:24
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.13s           2025-10-06T20:26:23
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T20:26:26
+================================================================================
+[2025-10-06T20:27:21.673+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.11s           2025-10-06T20:27:14
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T20:26:54
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:26:55
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.12s           2025-10-06T20:26:54
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.26s           2025-10-06T20:26:56
+================================================================================
+[2025-10-06T20:27:51.992+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.03s           2025-10-06T20:27:49
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T20:27:24
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.07s           2025-10-06T20:27:25
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.18s           2025-10-06T20:27:24
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.16s           2025-10-06T20:27:26
+================================================================================
+[2025-10-06T20:28:22.298+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py   1178  2.01s             0           1  5.03s           2025-10-06T20:27:49
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T20:27:55
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:27:56
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.18s           2025-10-06T20:27:55
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T20:27:57
+================================================================================
+[2025-10-06T20:28:52.651+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.03s           2025-10-06T20:28:24
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.16s           2025-10-06T20:28:25
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:28:26
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.27s           2025-10-06T20:28:25
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.13s           2025-10-06T20:28:27
+================================================================================
+[2025-10-06T20:29:23.209+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.66s           2025-10-06T20:28:58
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T20:28:55
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:28:56
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.15s           2025-10-06T20:28:55
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.21s           2025-10-06T20:28:58
+================================================================================
+[2025-10-06T20:29:38.219+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T20:29:38.221+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T20:29:53.317+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.79s           2025-10-06T20:29:32
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T20:29:26
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.10s           2025-10-06T20:29:27
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.17s           2025-10-06T20:29:26
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.19s           2025-10-06T20:29:28
+================================================================================
+[2025-10-06T20:30:23.954+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.26s           2025-10-06T20:30:07
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T20:29:56
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.07s           2025-10-06T20:29:57
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.15s           2025-10-06T20:29:56
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.17s           2025-10-06T20:29:58
+================================================================================
+[2025-10-06T20:30:54.289+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.01s           2025-10-06T20:30:42
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T20:30:27
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.07s           2025-10-06T20:30:28
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.17s           2025-10-06T20:30:27
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.18s           2025-10-06T20:30:29
+================================================================================
+[2025-10-06T20:31:24.291+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.66s           2025-10-06T20:31:16
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.15s           2025-10-06T20:30:57
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:30:58
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.29s           2025-10-06T20:30:57
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.18s           2025-10-06T20:30:59
+================================================================================
+[2025-10-06T20:31:54.817+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.75s           2025-10-06T20:31:50
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.12s           2025-10-06T20:31:27
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:31:28
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.17s           2025-10-06T20:31:27
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.25s           2025-10-06T20:31:30
+================================================================================
+[2025-10-06T20:32:25.673+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py   1359  4.03s             0           1  3.75s           2025-10-06T20:31:50
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.11s           2025-10-06T20:31:58
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.10s           2025-10-06T20:31:59
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.34s           2025-10-06T20:31:58
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.22s           2025-10-06T20:32:00
+================================================================================
+[2025-10-06T20:32:56.072+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.68s           2025-10-06T20:32:26
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T20:32:28
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:32:29
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.17s           2025-10-06T20:32:28
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T20:32:31
+================================================================================
+[2025-10-06T20:33:26.433+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.78s           2025-10-06T20:33:00
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T20:32:59
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.07s           2025-10-06T20:33:00
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.15s           2025-10-06T20:32:59
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.16s           2025-10-06T20:33:01
+================================================================================
+[2025-10-06T20:33:56.799+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.75s           2025-10-06T20:33:35
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T20:33:29
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:33:30
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.11s           2025-10-06T20:33:29
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T20:33:31
+================================================================================
+[2025-10-06T20:34:27.209+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.60s           2025-10-06T20:34:09
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T20:33:59
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.08s           2025-10-06T20:34:00
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.11s           2025-10-06T20:33:59
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.18s           2025-10-06T20:34:02
+================================================================================
+[2025-10-06T20:34:38.395+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T20:34:38.398+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T20:34:57.570+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.70s           2025-10-06T20:34:44
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T20:34:30
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:34:31
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.13s           2025-10-06T20:34:30
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T20:34:32
+================================================================================
+[2025-10-06T20:35:28.013+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.14s           2025-10-06T20:35:19
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T20:35:00
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.08s           2025-10-06T20:35:01
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.18s           2025-10-06T20:35:00
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.15s           2025-10-06T20:35:02
+================================================================================
+[2025-10-06T20:35:58.459+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.54s           2025-10-06T20:35:53
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.14s           2025-10-06T20:35:31
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.08s           2025-10-06T20:35:32
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.30s           2025-10-06T20:35:31
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.18s           2025-10-06T20:35:33
+================================================================================
+[2025-10-06T20:36:28.847+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.51s           2025-10-06T20:36:28
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T20:36:01
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:36:02
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.20s           2025-10-06T20:36:01
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T20:36:03
+================================================================================
+[2025-10-06T20:36:59.314+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py   1574  1.01s             0           1  3.51s           2025-10-06T20:36:28
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.18s           2025-10-06T20:36:32
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.11s           2025-10-06T20:36:33
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.27s           2025-10-06T20:36:32
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.15s           2025-10-06T20:36:34
+================================================================================
+[2025-10-06T20:37:29.637+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.65s           2025-10-06T20:37:01
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T20:37:02
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:37:03
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.17s           2025-10-06T20:37:02
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.13s           2025-10-06T20:37:04
+================================================================================
+[2025-10-06T20:38:00.211+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.76s           2025-10-06T20:37:36
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T20:37:32
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.14s           2025-10-06T20:37:33
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.12s           2025-10-06T20:37:32
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.26s           2025-10-06T20:37:35
+================================================================================
+[2025-10-06T20:38:30.337+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.80s           2025-10-06T20:38:10
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T20:38:03
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:38:04
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.13s           2025-10-06T20:38:03
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.13s           2025-10-06T20:38:05
+================================================================================
+[2025-10-06T20:39:00.795+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.69s           2025-10-06T20:38:44
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T20:38:33
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:38:34
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.12s           2025-10-06T20:38:33
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.24s           2025-10-06T20:38:35
+================================================================================
+[2025-10-06T20:39:31.107+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.36s           2025-10-06T20:39:18
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T20:39:03
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:39:04
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.12s           2025-10-06T20:39:03
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.13s           2025-10-06T20:39:06
+================================================================================
+[2025-10-06T20:39:38.582+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T20:39:38.584+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T20:40:01.448+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.09s           2025-10-06T20:39:53
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T20:39:34
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.07s           2025-10-06T20:39:35
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.18s           2025-10-06T20:39:34
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.26s           2025-10-06T20:39:36
+================================================================================
+[2025-10-06T20:40:31.979+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.67s           2025-10-06T20:40:27
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T20:40:04
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:40:05
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.16s           2025-10-06T20:40:04
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.25s           2025-10-06T20:40:06
+================================================================================
+[2025-10-06T20:40:44.069+0000] {manager.py:470} INFO - Exiting gracefully upon receiving signal 15
+[2025-10-06T20:42:05.294+0000] {manager.py:488} INFO - Processing files using up to 2 processes at a time 
+[2025-10-06T20:42:05.298+0000] {manager.py:489} INFO - Process each file at most once every 30 seconds
+[2025-10-06T20:42:05.298+0000] {manager.py:490} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-10-06T20:42:05.298+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T20:42:05.301+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T20:42:05.758+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py     52  0.29s             0           0
+/opt/airflow/dags/project_level_dbt_dag.py                      53  0.25s             0           0
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0
+/opt/airflow/dags/model_level_dbt_dag.py                                              0           0
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0
+================================================================================
+[2025-10-06T20:42:35.968+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.43s           2025-10-06T20:42:10
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.11s           2025-10-06T20:42:06
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.13s           2025-10-06T20:42:07
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.92s           2025-10-06T20:42:06
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.92s           2025-10-06T20:42:07
+================================================================================
+[2025-10-06T20:43:06.124+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.50s           2025-10-06T20:42:44
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T20:42:36
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.09s           2025-10-06T20:42:37
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.16s           2025-10-06T20:42:36
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.17s           2025-10-06T20:42:38
+================================================================================
+[2025-10-06T20:43:36.215+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.59s           2025-10-06T20:43:18
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.18s           2025-10-06T20:43:07
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.14s           2025-10-06T20:43:08
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.36s           2025-10-06T20:43:07
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.47s           2025-10-06T20:43:08
+================================================================================
+[2025-10-06T20:44:06.233+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.58s           2025-10-06T20:43:51
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T20:43:38
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:43:39
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.12s           2025-10-06T20:43:38
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.13s           2025-10-06T20:43:39
+================================================================================
+[2025-10-06T20:44:36.649+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.37s           2025-10-06T20:44:25
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T20:44:08
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.10s           2025-10-06T20:44:09
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.18s           2025-10-06T20:44:08
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.20s           2025-10-06T20:44:09
+================================================================================
+[2025-10-06T20:45:06.961+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.13s           2025-10-06T20:45:01
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T20:44:38
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:44:39
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.12s           2025-10-06T20:44:38
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T20:44:39
+================================================================================
+[2025-10-06T20:45:37.260+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.39s           2025-10-06T20:45:34
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T20:45:09
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T20:45:10
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.11s           2025-10-06T20:45:09
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T20:45:10
+================================================================================
+[2025-10-06T20:46:07.601+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py    237  3.02s             0           1  3.39s           2025-10-06T20:45:34
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T20:45:39
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.10s           2025-10-06T20:45:40
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.16s           2025-10-06T20:45:39
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.21s           2025-10-06T20:45:40
+================================================================================
+[2025-10-06T20:46:38.123+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py    259  0.00s             0           1  3.26s           2025-10-06T20:46:07
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T20:46:09
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.18s           2025-10-06T20:46:11
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.16s           2025-10-06T20:46:09
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.39s           2025-10-06T20:46:11
+================================================================================
+[2025-10-06T20:46:59.478+0000] {manager.py:470} INFO - Exiting gracefully upon receiving signal 15
+[2025-10-06T20:51:35.047+0000] {manager.py:488} INFO - Processing files using up to 2 processes at a time 
+[2025-10-06T20:51:35.048+0000] {manager.py:489} INFO - Process each file at most once every 30 seconds
+[2025-10-06T20:51:35.048+0000] {manager.py:490} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-10-06T20:51:35.049+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T20:51:35.051+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T20:51:35.185+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py     52  0.08s             0           0
+/opt/airflow/dags/project_level_dbt_dag.py                      53  0.07s             0           0
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0
+/opt/airflow/dags/model_level_dbt_dag.py                                              0           0
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0
+================================================================================
+[2025-10-06T20:53:02.353+0000] {manager.py:488} INFO - Processing files using up to 2 processes at a time 
+[2025-10-06T20:53:02.374+0000] {manager.py:489} INFO - Process each file at most once every 30 seconds
+[2025-10-06T20:53:02.374+0000] {manager.py:490} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-10-06T20:53:02.374+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T20:53:02.388+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T20:53:02.631+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py     50  0.17s             0           0
+/opt/airflow/dags/project_level_dbt_dag.py                      51  0.16s             0           0
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0
+/opt/airflow/dags/model_level_dbt_dag.py                                              0           0
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0
+================================================================================
+[2025-10-06T20:53:33.085+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  6.65s           2025-10-06T20:53:09
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.12s           2025-10-06T20:53:03
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.27s           2025-10-06T20:53:04
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.67s           2025-10-06T20:53:03
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.64s           2025-10-06T20:53:03
+================================================================================
+[2025-10-06T20:53:42.398+0000] {manager.py:470} INFO - Exiting gracefully upon receiving signal 15
+[2025-10-06T20:53:42.417+0000] {manager.py:470} INFO - Exiting gracefully upon receiving signal 15
+[2025-10-06T20:53:43.403+0000] {manager.py:470} INFO - Exiting gracefully upon receiving signal 15
+[2025-10-06T20:57:26.300+0000] {manager.py:488} INFO - Processing files using up to 2 processes at a time 
+[2025-10-06T20:57:26.302+0000] {manager.py:489} INFO - Process each file at most once every 30 seconds
+[2025-10-06T20:57:26.302+0000] {manager.py:490} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-10-06T20:57:26.302+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T20:57:26.306+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T20:57:26.393+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py     56  0.04s             0           0
+/opt/airflow/dags/project_level_dbt_dag.py                      57  0.04s             0           0
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0
+/opt/airflow/dags/model_level_dbt_dag.py                                              0           0
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0
+================================================================================
+[2025-10-06T20:57:56.468+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  10.77s          2025-10-06T20:57:37
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T20:57:26
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.09s           2025-10-06T20:57:27
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.36s           2025-10-06T20:57:26
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.44s           2025-10-06T20:57:27
+================================================================================
+[2025-10-06T20:58:26.666+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.59s           2025-10-06T20:58:11
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T20:57:57
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.12s           2025-10-06T20:57:57
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.22s           2025-10-06T20:57:57
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.21s           2025-10-06T20:57:57
+================================================================================
+[2025-10-06T20:58:57.135+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.34s           2025-10-06T20:58:47
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T20:58:27
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.10s           2025-10-06T20:58:27
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.21s           2025-10-06T20:58:27
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.23s           2025-10-06T20:58:28
+================================================================================
+[2025-10-06T20:59:27.499+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.75s           2025-10-06T20:59:21
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.14s           2025-10-06T20:58:58
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.18s           2025-10-06T20:58:58
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.31s           2025-10-06T20:58:58
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.41s           2025-10-06T20:58:58
+================================================================================
+[2025-10-06T20:59:57.964+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.38s           2025-10-06T20:59:55
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T20:59:28
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T20:59:28
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.17s           2025-10-06T20:59:28
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.13s           2025-10-06T20:59:28
+================================================================================
+[2025-10-06T21:00:28.603+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py    204  3.02s             0           1  3.38s           2025-10-06T20:59:55
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.16s           2025-10-06T20:59:59
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.13s           2025-10-06T20:59:59
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.36s           2025-10-06T20:59:59
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.32s           2025-10-06T20:59:59
+================================================================================
+[2025-10-06T21:00:58.971+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.08s           2025-10-06T21:00:29
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T21:00:29
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.08s           2025-10-06T21:00:29
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.17s           2025-10-06T21:00:29
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.18s           2025-10-06T21:00:29
+================================================================================
+[2025-10-06T21:01:29.143+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.56s           2025-10-06T21:01:04
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.14s           2025-10-06T21:01:00
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.14s           2025-10-06T21:01:01
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.34s           2025-10-06T21:01:00
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.40s           2025-10-06T21:01:00
+================================================================================
+[2025-10-06T21:01:59.438+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.58s           2025-10-06T21:01:39
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T21:01:30
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T21:01:31
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.11s           2025-10-06T21:01:30
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.13s           2025-10-06T21:01:31
+================================================================================
+[2025-10-06T21:02:26.923+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T21:02:26.928+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T21:02:29.957+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.74s           2025-10-06T21:02:13
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.07s           2025-10-06T21:02:01
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T21:02:02
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.15s           2025-10-06T21:02:01
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T21:02:02
+================================================================================
+[2025-10-06T21:02:59.967+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.42s           2025-10-06T21:02:47
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.08s           2025-10-06T21:02:31
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T21:02:32
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.13s           2025-10-06T21:02:31
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T21:02:32
+================================================================================
+[2025-10-06T21:03:29.970+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.80s           2025-10-06T21:03:21
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T21:03:01
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.09s           2025-10-06T21:03:02
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.13s           2025-10-06T21:03:01
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.18s           2025-10-06T21:03:02
+================================================================================
+[2025-10-06T21:04:00.185+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.45s           2025-10-06T21:03:56
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T21:03:31
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.11s           2025-10-06T21:03:33
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.17s           2025-10-06T21:03:31
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.22s           2025-10-06T21:03:33
+================================================================================
+[2025-10-06T21:04:30.512+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py    418  3.76s             0           1  4.45s           2025-10-06T21:03:56
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T21:04:02
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.09s           2025-10-06T21:04:03
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.16s           2025-10-06T21:04:02
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  2.37s           2025-10-06T21:04:05
+================================================================================
+[2025-10-06T21:05:00.824+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py    443  0.01s             0           1  3.99s           2025-10-06T21:04:30
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T21:04:32
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T21:04:33
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.18s           2025-10-06T21:04:32
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T21:04:35
+================================================================================
+[2025-10-06T21:05:31.339+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.92s           2025-10-06T21:05:04
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.07s           2025-10-06T21:05:03
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.09s           2025-10-06T21:05:04
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.27s           2025-10-06T21:05:03
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T21:05:06
+================================================================================
+[2025-10-06T21:06:01.825+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.50s           2025-10-06T21:05:39
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.14s           2025-10-06T21:05:33
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:05:34
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.29s           2025-10-06T21:05:33
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.17s           2025-10-06T21:05:36
+================================================================================
+[2025-10-06T21:06:32.193+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.34s           2025-10-06T21:06:13
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T21:06:03
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:06:05
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.21s           2025-10-06T21:06:04
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.13s           2025-10-06T21:06:07
+================================================================================
+[2025-10-06T21:07:02.626+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.12s           2025-10-06T21:06:48
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.13s           2025-10-06T21:06:34
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T21:06:35
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.16s           2025-10-06T21:06:34
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.13s           2025-10-06T21:06:37
+================================================================================
+[2025-10-06T21:07:26.923+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T21:07:26.926+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T21:07:32.957+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.40s           2025-10-06T21:07:22
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T21:07:04
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:07:05
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.12s           2025-10-06T21:07:04
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T21:07:07
+================================================================================
+[2025-10-06T21:08:03.220+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.86s           2025-10-06T21:07:56
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T21:07:35
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:07:36
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.14s           2025-10-06T21:07:35
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.23s           2025-10-06T21:07:38
+================================================================================
+[2025-10-06T21:08:33.548+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.28s           2025-10-06T21:08:30
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T21:08:05
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:08:06
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.11s           2025-10-06T21:08:05
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T21:08:08
+================================================================================
+[2025-10-06T21:09:03.805+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py    634  3.02s             0           1  4.28s           2025-10-06T21:08:30
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T21:08:35
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:08:36
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.12s           2025-10-06T21:08:35
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.29s           2025-10-06T21:08:38
+================================================================================
+[2025-10-06T21:09:34.332+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py    659  0.00s             0           1  3.53s           2025-10-06T21:09:04
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T21:09:06
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.07s           2025-10-06T21:09:07
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.18s           2025-10-06T21:09:06
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T21:09:09
+================================================================================
+[2025-10-06T21:10:04.819+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.86s           2025-10-06T21:09:38
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T21:09:36
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.09s           2025-10-06T21:09:37
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.23s           2025-10-06T21:09:36
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.28s           2025-10-06T21:09:39
+================================================================================
+[2025-10-06T21:10:35.429+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.75s           2025-10-06T21:10:12
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T21:10:06
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:10:08
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.20s           2025-10-06T21:10:07
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.30s           2025-10-06T21:10:10
+================================================================================
+[2025-10-06T21:11:05.943+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.38s           2025-10-06T21:10:46
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T21:10:37
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:10:38
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.16s           2025-10-06T21:10:37
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.29s           2025-10-06T21:10:40
+================================================================================
+[2025-10-06T21:11:36.317+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  5.26s           2025-10-06T21:11:21
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T21:11:08
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:11:09
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.18s           2025-10-06T21:11:08
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.13s           2025-10-06T21:11:11
+================================================================================
+[2025-10-06T21:12:06.559+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.97s           2025-10-06T21:11:55
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T21:11:38
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:11:39
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.18s           2025-10-06T21:11:38
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.16s           2025-10-06T21:11:41
+================================================================================
+[2025-10-06T21:12:27.835+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T21:12:27.838+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T21:12:36.928+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.58s           2025-10-06T21:12:29
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T21:12:08
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:12:09
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.19s           2025-10-06T21:12:08
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.13s           2025-10-06T21:12:11
+================================================================================
+[2025-10-06T21:13:06.958+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.80s           2025-10-06T21:13:03
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T21:12:39
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:12:40
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.12s           2025-10-06T21:12:39
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.13s           2025-10-06T21:12:42
+================================================================================
+[2025-10-06T21:13:37.653+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py    845  3.02s             0           1  3.80s           2025-10-06T21:13:03
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T21:13:09
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:13:10
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.17s           2025-10-06T21:13:09
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.27s           2025-10-06T21:13:26
+================================================================================
+[2025-10-06T21:14:08.070+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.48s           2025-10-06T21:13:38
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.06s           2025-10-06T21:13:39
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T21:13:40
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.12s           2025-10-06T21:13:39
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T21:13:57
+================================================================================
+[2025-10-06T21:14:38.576+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.72s           2025-10-06T21:14:12
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.18s           2025-10-06T21:14:10
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.16s           2025-10-06T21:14:11
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.20s           2025-10-06T21:14:10
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T21:14:27
+================================================================================
+[2025-10-06T21:15:08.877+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.61s           2025-10-06T21:14:47
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T21:14:40
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T21:14:41
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.17s           2025-10-06T21:14:40
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T21:14:57
+================================================================================
+[2025-10-06T21:15:39.238+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.48s           2025-10-06T21:15:21
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T21:15:36
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.11s           2025-10-06T21:15:12
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.18s           2025-10-06T21:15:11
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.20s           2025-10-06T21:15:28
+================================================================================
+[2025-10-06T21:16:09.610+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.25s           2025-10-06T21:15:56
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T21:16:06
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:15:42
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.26s           2025-10-06T21:16:05
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.15s           2025-10-06T21:15:58
+================================================================================
+[2025-10-06T21:16:39.892+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.53s           2025-10-06T21:16:22
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T21:16:36
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.07s           2025-10-06T21:16:12
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.12s           2025-10-06T21:16:35
+/opt/airflow/dags/model_level_dbt_dag.py                       992  0.01s             1           0  0.13s           2025-10-06T21:16:28
+================================================================================
+[2025-10-06T21:17:10.138+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.35s           2025-10-06T21:16:57
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T21:17:07
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T21:16:43
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.20s           2025-10-06T21:17:06
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.40s           2025-10-06T21:16:40
+================================================================================
+[2025-10-06T21:17:28.266+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T21:17:28.269+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T21:17:40.349+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.63s           2025-10-06T21:17:31
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T21:17:37
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:17:13
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.12s           2025-10-06T21:17:36
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T21:17:11
+================================================================================
+[2025-10-06T21:18:10.935+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.32s           2025-10-06T21:18:06
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.09s           2025-10-06T21:18:07
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:17:43
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.34s           2025-10-06T21:18:06
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.19s           2025-10-06T21:17:41
+================================================================================
+[2025-10-06T21:18:41.248+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.82s           2025-10-06T21:18:40
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.10s           2025-10-06T21:18:38
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:18:14
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.16s           2025-10-06T21:18:37
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T21:18:12
+================================================================================
+[2025-10-06T21:19:11.431+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py   1102  0.00s             0           1  3.82s           2025-10-06T21:18:40
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.15s           2025-10-06T21:19:08
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T21:18:44
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.22s           2025-10-06T21:19:07
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.13s           2025-10-06T21:18:42
+================================================================================
+[2025-10-06T21:19:41.749+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.57s           2025-10-06T21:19:14
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T21:19:38
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.06s           2025-10-06T21:19:14
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.11s           2025-10-06T21:19:37
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.16s           2025-10-06T21:19:12
+================================================================================
+[2025-10-06T21:20:12.016+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.76s           2025-10-06T21:19:50
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T21:20:09
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.08s           2025-10-06T21:19:44
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.11s           2025-10-06T21:20:08
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T21:19:42
+================================================================================
+[2025-10-06T21:20:42.220+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.92s           2025-10-06T21:20:25
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T21:20:39
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:20:15
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.11s           2025-10-06T21:20:38
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.13s           2025-10-06T21:20:13
+================================================================================
+[2025-10-06T21:21:12.477+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.42s           2025-10-06T21:20:59
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T21:21:09
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.08s           2025-10-06T21:20:45
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.11s           2025-10-06T21:21:08
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.16s           2025-10-06T21:20:43
+================================================================================
+[2025-10-06T21:21:42.727+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.07s           2025-10-06T21:21:34
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T21:21:39
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.09s           2025-10-06T21:21:15
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.11s           2025-10-06T21:21:38
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.28s           2025-10-06T21:21:13
+================================================================================
+[2025-10-06T21:22:12.946+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  3.34s           2025-10-06T21:22:08
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T21:22:09
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:21:45
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.11s           2025-10-06T21:22:09
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.15s           2025-10-06T21:21:43
+================================================================================
+[2025-10-06T21:22:29.089+0000] {manager.py:760} INFO - Searching for files in /opt/airflow/dags
+[2025-10-06T21:22:29.091+0000] {manager.py:763} INFO - There are 5 files in /opt/airflow/dags
+[2025-10-06T21:22:43.244+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py   1255  4.10s             0           1  3.34s           2025-10-06T21:22:08
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.16s           2025-10-06T21:22:40
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.08s           2025-10-06T21:22:16
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.32s           2025-10-06T21:22:39
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.24s           2025-10-06T21:22:14
+================================================================================
+[2025-10-06T21:23:13.545+0000] {manager.py:888} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-----------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/model_level_dbt_great_expectations_dag.py                           0           1  4.63s           2025-10-06T21:22:43
+/opt/airflow/dags/dbt_dag_parser.py                                                   0           0  0.05s           2025-10-06T21:23:10
+/opt/airflow/dags/dbt_dag_parser_v2.py                                                0           0  0.05s           2025-10-06T21:22:46
+/opt/airflow/dags/project_level_dbt_dag.py                                            1           0  0.12s           2025-10-06T21:23:09
+/opt/airflow/dags/model_level_dbt_dag.py                                              1           0  0.14s           2025-10-06T21:22:44
+================================================================================
