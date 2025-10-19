@@ -1,0 +1,7 @@
+{% for filename in [
+    'css/style.css',
+    'css/vue-tree.css',
+    'css/vue-good-table.css',
+    'css/editor_v' ~ airflow_major_version ~ '.css' ] -%}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='code_editor/' + filename) }}" />
+{% endfor %}
