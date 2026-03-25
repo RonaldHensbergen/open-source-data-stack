@@ -142,7 +142,7 @@ $ docker compose up airflow-init
 $ docker compose up
 ```
 
-This commands will run `Apache Airflow` on `localhost:8080`. We can login by using *Airflow* both as user and password. Also, it will create the `PostgreSQL` database were `dbt` is going to store the data models, and `Apache Superset` is going to be connected. And finally, the `docker-compose.yml` is in charge of inserting the downloaded data on the database.
+This commands will run `Apache Airflow` on `localhost:8080`. We can login by using *airflow* both as user and password. Also, it will create the `PostgreSQL` database were `dbt` is going to store the data models, and `Apache Superset` is going to be connected. And finally, the `docker-compose.yml` is in charge of inserting the downloaded data on the database.
 
 ## Apache Airflow DAGs
 
@@ -269,10 +269,17 @@ networks:
     name: open-source-data-stack_default
 ```
 
+We need to set a `SECRET_KEY` for `Apache Superset` to work, so we can add it on the `superset_config.py` file:
+https://superset.apache.org/admin-docs/configuration/configuring-superset/#specifying-a-secret_key 
+
+```
+SECRET_KEY=supersecretkey
+```
+
 Now we can build `Apache Superset` by running:
 ```
 $ cd superset
-$ docker-compose -f docker-compose-non-dev.yml up
+$ docker compose -f docker-compose-non-dev.yml up
 ```
 
 This will run `Apache Superset` at `localhost:8088`, we can access by using *admin* as both user and password. Once we log in, we can create the connection to the database.
