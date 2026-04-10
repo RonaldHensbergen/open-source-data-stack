@@ -14,7 +14,12 @@ RUN apt-get update && apt-get install -y \
 USER airflow
 
 # Install Python dependencies
+COPY requirements.txt .
+
 RUN pip install --upgrade pip \
     && pip install dbt-postgres==1.9.1 \
     && pip install airflow-provider-great-expectations>=0.3.0 \
-    && pip install great_expectations==1.6.4
+    && pip install great_expectations==1.6.4 \
+    && pip install airflow-operators==0.16.0
+
+RUN python -c "import importlib, sys; sys.exit(0 if importlib.util.find_spec('airflow-operators') else 1)"
