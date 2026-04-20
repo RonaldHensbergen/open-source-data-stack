@@ -1,0 +1,25 @@
+#  great_expectations_docs:
+#    image: dockersamples/static-site
+#    volumes:
+#      - ./great_expectations/uncommitted/data_docs/local_site:/usr/share/nginx/html
+#    ports:
+#      - "81:80"
+#    container_name: "great_expectations_docs"
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: great_expectations_docs
+  type: documentation
+spec:
+  containers:
+  - name: great_expectations_docs
+    image: nginx:latest
+    resources:
+      limits:
+        cpu: 500m
+        memory: 512Mi
+      requests:
+        cpu: 250m
+        memory: 256Mi
+  
