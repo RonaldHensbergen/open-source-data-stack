@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airflow-apiserver
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: airflow-apiserver
+  template:
+    metadata:
+      labels:
+        app: airflow-apiserver
+    spec:
+      containers:
+        - name: airflow-apiserver
+          image: apache/airflow:3.1.0
+          command: ["api-server"]
+          ports:
+            - containerPort: 8080
+          env:
+            - name: AIRFLOW__CORE__EXECUTOR
+              value: CeleryExecutor
+            - name: AIRFLOW__DATABASE__SQL_ALCHEMY_CONN
+              value: postgresql+psycopg2://airflow:airflow@postgres/airflow
+            - name: AIRFLOW__CELERY__RESULT_BACKEND
+              value: db+postgresql://airflow:airflow@postgres/airflow
+            - name: AIRFLOW__CELERY__BROKER_URL
+              value: redis://:@redis:6379/0
+          volumeMounts:
+            - mountPath: /opt/airflow/dags
+              name: dags-volume
+            - mountPath: /opt/airflow/logs
+              name: logs-volume
+            - mountPath: /opt/airflow/config
+              name: config-volume
+            - mountPath: /opt/airflow/plugins
+              name: plugins-volume
+            - mountPath: /opt/dbt
+              name: dbt-volume
+            - mountPath: /opt/great_expectations
+              name: great-expectations-volume
+          securityContext:
+            runAsUser: 50000
+            runAsGroup: 0
+      volumes:
+        - name: dags-volume
+          hostPath:
+            path: ./dags
+        - name: logs-volume
+          hostPath:
+            path: ./logs
+        - name: config-volume
+          hostPath:
+            path: ./config
+        - name: plugins-volume
+          hostPath:
+            path: ./plugins
+        - name: dbt-volume
+          hostPath:
+            path: ./dbt
+        - name: great-expectations-volume
+          hostPath:
+            path: ./great_expectations

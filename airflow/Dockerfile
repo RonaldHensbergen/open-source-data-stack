@@ -1,0 +1,24 @@
+FROM apache/airflow:3.2.0-python3.12
+
+USER root
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libpq-dev \
+    python3-dev \
+    build-essential \
+    ntpsec \
+    && ntpd -q \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+
+# Install Python dependencies
+COPY requirements.txt /tmp/requirements.txt
+
+USER airflow
+
+RUN pip install --upgrade pip setuptools wheel \
+    && pip install --no-cache-dir -r /tmp/requirements.txt
+
