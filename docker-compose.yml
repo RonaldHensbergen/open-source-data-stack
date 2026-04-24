@@ -49,8 +49,8 @@ x-airflow-common:
   # In order to add custom dependencies or upgrade provider distributions you can use your extended image.
   # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
   # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
-  image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:3.1.0}
-  # build: .
+  image: ${AIRFLOW_IMAGE_NAME} 
+  pull_policy: never  
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
@@ -105,7 +105,7 @@ services:
     restart: always
 
   redis:
-    image: eqalpha/keydb:latest
+    image: ${DOCKER_IMAGE_KEYDB:-eqalpha/keydb:latest}
     expose:
       - 6379
     container_name: redis
@@ -295,6 +295,9 @@ services:
       _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
       _PIP_ADDITIONAL_REQUIREMENTS: ''
     user: "0:0"
+    depends_on:
+      airflow-base:
+        condition: service_completed_successfully
 
   airflow-cli:
     <<: *airflow-common
@@ -310,6 +313,18 @@ services:
       - airflow
     depends_on:
       <<: *airflow-common-depends-on
+      airflow-base:
+        condition: service_completed_successfully
+
+  airflow-base:
+    build:
+      context: ${AIRFLOW_PROJ_DIR:-.}
+      dockerfile: Dockerfile
+      args:
+        - DOCKER_IMAGE_AIRFLOW=${DOCKER_IMAGE_AIRFLOW}
+    image: ${AIRFLOW_IMAGE_NAME}     
+    command: "version"
+    restart: "no"
 
   # You can enable flower by adding "--profile flower" option e.g. docker-compose --profile flower up
   # or by explicitly targeted on the command line e.g. docker-compose up flower.
@@ -335,7 +350,7 @@ services:
 
   # Define local postgres to store the data
   postgres_local:
-    image: postgres:18
+    image: ${DOCKER_IMAGE_POSTGRES:-postgres:18}
     ports:
       - "5432:5432"
     environment:
@@ -350,7 +365,10 @@ services:
 
   create-db:
     build:
-      dockerfile: ./db.Dockerfile
+      context: ./db
+      dockerfile: Dockerfile
+      args:
+        - DOCKER_IMAGE_PYTHON=${DOCKER_IMAGE_PYTHON}
     environment:
       - POSTGRES_PASSWORD=docker
       - POSTGRES_USER=docker
@@ -365,7 +383,7 @@ services:
         condition: service_healthy
 
   dbt_docs:
-    image: dockersamples/static-site
+    image: ${DOCKER_IMAGE_NGINX}
     volumes:
       - ./dbt/jaffle_shop/target:/usr/share/nginx/html
     ports:
@@ -373,7 +391,7 @@ services:
     container_name: "dbt_docs"
 
   great_expectations_docs:
-    image: dockersamples/static-site
+    image: ${DOCKER_IMAGE_NGINX}
     volumes:
       - ./great_expectations/uncommitted/data_docs/local_site:/usr/share/nginx/html
     ports:

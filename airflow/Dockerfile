@@ -1,4 +1,5 @@
-FROM apache/airflow:3.2.0-python3.12
+ARG DOCKER_IMAGE_AIRFLOW=x
+FROM ${DOCKER_IMAGE_AIRFLOW}
 
 USER root
 
@@ -8,17 +9,17 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     python3-dev \
     build-essential \
-    ntpsec \
-    && ntpd -q \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+USER airflow
 
 # Install Python dependencies
 COPY requirements.txt /tmp/requirements.txt
 
-USER airflow
 
-RUN pip install --upgrade pip setuptools wheel \
-    && pip install --no-cache-dir -r /tmp/requirements.txt
+RUN pip install --no-cache-dir \
+#    --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-3.2.0/constraints-3.12.txt" \
+    -r /tmp/requirements.txt
 
+#RUN python -c "import importlib, sys; sys.exit(0 if importlib.util.find_spec('airflow-operators') else 1)"
