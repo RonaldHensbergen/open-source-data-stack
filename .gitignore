@@ -4,3 +4,4 @@
 .env
 airflow/logs/
 airflow/config/
+airflow/data/

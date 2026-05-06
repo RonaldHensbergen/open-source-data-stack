@@ -58,7 +58,7 @@ x-airflow-common:
     AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
-    AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
+    AIRFLOW__CELERY__BROKER_URL: redis://:@airflow-keydb:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
@@ -79,17 +79,34 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
+    - ${AIRFLOW_PROJ_DIR:-.}/data:/opt/airflow/data
     - ./dbt:/opt/dbt
     - ./great_expectations:/opt/great_expectations
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
-    redis:
+    airflow-keydb:
       condition: service_healthy
     postgres:
       condition: service_healthy
 
+x-superset-image: &superset-image apache/superset:${TAG:-latest-dev}
+x-superset-depends-on: &superset-depends-on
+  - db
+  - superset-keydb
+x-superset-volumes: &superset-volumes
+  # /app/pythonpath_docker will be appended to the PYTHONPATH in the final container
+  - ./docker:/app/docker
+  - superset_home:/app/superset_home
+
 services:
+  superset-keydb:
+    image: ${DOCKER_IMAGE_KEYDB:-eqalpha/keydb:latest}
+    container_name: superset_cache
+    restart: unless-stopped
+    volumes:
+      - superset-keydb-data:/data
+
   postgres:
     image: postgres:18
     environment:
@@ -107,11 +124,11 @@ services:
 
   # vm.overcommit_memory=0 warning can be ignored 
   # if there is no performance degradation
-  redis:
+  airflow-keydb:
     image: ${DOCKER_IMAGE_KEYDB:-eqalpha/keydb:latest}
     expose:
       - 6379
-    container_name: redis
+    container_name: airflow_keydb
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
@@ -403,3 +420,6 @@ services:
 
 volumes:
   postgres-db-volume:
+  superset-keydb-data:
+  superset_home:
+  

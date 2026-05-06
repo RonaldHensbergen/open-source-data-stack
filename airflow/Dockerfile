@@ -18,8 +18,7 @@ USER airflow
 COPY requirements.txt /tmp/requirements.txt
 
 
-RUN pip install --no-cache-dir \
-#    --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-3.2.0/constraints-3.12.txt" \
+RUN pip install --upgrade pip \
+    && pip install --no-cache-dir \
     -r /tmp/requirements.txt
 
-#RUN python -c "import importlib, sys; sys.exit(0 if importlib.util.find_spec('airflow-operators') else 1)"
