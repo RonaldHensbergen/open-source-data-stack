@@ -21,5 +21,3 @@ left join parent
     on child.from_field = parent.to_field
 
 where parent.to_field is null
-
-
