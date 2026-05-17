@@ -100,13 +100,6 @@ x-superset-volumes: &superset-volumes
   - superset_home:/app/superset_home
 
 services:
-  superset-keydb:
-    image: ${DOCKER_IMAGE_KEYDB:-eqalpha/keydb:latest}
-    container_name: superset_cache
-    restart: unless-stopped
-    volumes:
-      - superset-keydb-data:/data
-
   postgres:
     image: postgres:18
     environment:
@@ -136,6 +129,19 @@ services:
       retries: 50
       start_period: 30s
     restart: always
+
+  superset-keydb:
+    image: ${DOCKER_IMAGE_KEYDB:-eqalpha/keydb:latest}
+    container_name: superset_keydb
+    volumes:
+      - superset-keydb-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 30s
+      retries: 50
+      start_period: 30s 
+    restart: unless-stopped
 
   airflow-apiserver:
     <<: *airflow-common
@@ -409,7 +415,12 @@ services:
     ports:
       - "80:80"
     container_name: "dbt_docs"
-
+    healthcheck:
+      test: ["CMD", "service", "nginx", "status"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      
   great_expectations_docs:
     image: ${DOCKER_IMAGE_NGINX}
     volumes:
@@ -417,7 +428,12 @@ services:
     ports:
       - "81:80"
     container_name: "great_expectations_docs"
-
+    healthcheck:
+      test: ["CMD", "service", "nginx", "status"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+    
 volumes:
   postgres-db-volume:
   superset-keydb-data:
