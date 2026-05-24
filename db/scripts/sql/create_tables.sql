@@ -29,4 +29,3 @@ CREATE TABLE IF NOT EXISTS stripe.payment (
     created date,
     _batched_at timestamp NOT NULL DEFAULT NOW()
 );
-
