@@ -12,4 +12,4 @@ COPY . /app
 
 WORKDIR /app
 
-CMD python3 db/scripts/create_db_insert_data.py
+CMD python3 scripts/create_db_insert_data.py
