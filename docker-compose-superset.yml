@@ -19,6 +19,8 @@ x-superset-common: &superset-common
   image: *superset-image
   environment:
     SUPERSET_CONFIG_PATH: /app/pythonpath/superset_config.py
+    CELERY_BROKER_URL: redis://superset-keydb:6379/0
+    CELERY_RESULT_BACKEND: redis://superset-keydb:6379/1
 
 x-superset-depends-on: &superset-depends-on
   - superset-db
@@ -108,7 +110,7 @@ services:
         "celery -A superset.tasks.celery_app:app inspect ping -d celery@$$HOSTNAME --timeout=5 2>/dev/null | grep -q pong"
       ]     
       interval: 10s
-      timeout: 3s
+      timeout: 30s
       retries: 12
       start_period: 60s
 
@@ -122,15 +124,13 @@ services:
     volumes: *superset-volumes
     networks: *default-networks
     healthcheck:
-      test: [
-        "CMD-SHELL",
-        "pgrep -f 'celery.*beat' >/dev/null || exit 1; test -f /tmp/celerybeat-schedule || exit 1; find /tmp/celerybeat-schedule -mmin -2 >/dev/null 2>&1"
-        ]
+      test:
+        - CMD-SHELL
+        - /app/.venv/bin/celery -A superset.tasks.celery_app:app inspect ping -t 5 2>/dev/null | grep -q pong
       interval: 10s
-      timeout: 3s
+      timeout: 15s
       retries: 12
       start_period: 60s
-
 volumes:
   superset_home:
     external: false

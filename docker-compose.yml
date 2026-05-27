@@ -195,9 +195,9 @@ services:
     healthcheck:
       test: ["CMD-SHELL", 'airflow jobs check --job-type DagProcessorJob --hostname "$${HOSTNAME}"']
       interval: 30s
-      timeout: 10s
+      timeout: 30s
       retries: 5
-      start_period: 30s
+      start_period: 60s
     restart: always
     depends_on:
       <<: *airflow-common-depends-on
@@ -421,6 +421,7 @@ services:
       dockerfile: Dockerfile
       args:
         - DOCKER_IMAGE_PYTHON=${DOCKER_IMAGE_PYTHON}
+    container_name: create-local-db
     environment:
       - POSTGRES_PASSWORD=docker
       - POSTGRES_USER=docker
