@@ -83,27 +83,45 @@ x-airflow-common:
     - ./dbt:/opt/dbt
     - ./great_expectations:/opt/great_expectations
   user: "${AIRFLOW_UID:-50000}:0"
+  networks:
+    - ${NETWORK_NAME:-open-source-data-stack}
   depends_on:
     &airflow-common-depends-on
     airflow-keydb:
       condition: service_healthy
     postgres:
       condition: service_healthy
-
-x-superset-image: &superset-image apache/superset:${TAG:-latest-dev}
-x-superset-depends-on: &superset-depends-on
-  - db
-  - superset-keydb
-x-superset-volumes: &superset-volumes
-  # /app/pythonpath_docker will be appended to the PYTHONPATH in the final container
-  - ./docker:/app/docker
-  - superset_home:/app/superset_home
+    vault:
+      condition: service_healthy
 
 services:
+  vault:
+    image: ${DOCKER_IMAGE_VAULT:-hashicorp/vault:latest}
+    container_name: vault
+    ports:
+      - "8200:8200"
+    environment:
+      - VAULT_ADDR=http://127.0.0.1:8200
+      - VAULT_DEV_ROOT_TOKEN_ID=root-token  # For testing only!
+    cap_add:
+      - IPC_LOCK
+    healthcheck:
+      test: ["CMD", "vault", "status", "-format=json"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: always
+    volumes:
+      - vault_data:/vault/file
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
+
   postgres:
-    image: postgres:18
+    image: ${DOCKER_IMAGE_POSTGRES:-postgres:18}
     ports: 
       - "5433:5432"
+    container_name: postgres-airflow
     environment:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
@@ -116,6 +134,8 @@ services:
       retries: 5
       start_period: 5s
     restart: always
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
 
   # vm.overcommit_memory=0 warning can be ignored 
   # if there is no performance degradation
@@ -123,7 +143,7 @@ services:
     image: ${DOCKER_IMAGE_KEYDB:-eqalpha/keydb:latest}
     expose:
       - 6379
-    container_name: airflow_keydb
+    container_name: airflow-keydb
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
@@ -131,23 +151,13 @@ services:
       retries: 50
       start_period: 30s
     restart: always
-
-  superset-keydb:
-    image: ${DOCKER_IMAGE_KEYDB:-eqalpha/keydb:latest}
-    container_name: superset_keydb
-    volumes:
-      - superset-keydb-data:/data
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 10s
-      timeout: 30s
-      retries: 50
-      start_period: 30s 
-    restart: unless-stopped
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
 
   airflow-apiserver:
     <<: *airflow-common
     command: api-server
+    container_name: airflow-apiserver
     ports:
       - "8080:8080"
     healthcheck:
@@ -165,6 +175,7 @@ services:
   airflow-scheduler:
     <<: *airflow-common
     command: scheduler
+    container_name: airflow-scheduler
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8974/health"]
       interval: 30s
@@ -180,6 +191,7 @@ services:
   airflow-dag-processor:
     <<: *airflow-common
     command: dag-processor
+    container_name: airflow-dag-processor
     healthcheck:
       test: ["CMD-SHELL", 'airflow jobs check --job-type DagProcessorJob --hostname "$${HOSTNAME}"']
       interval: 30s
@@ -195,6 +207,7 @@ services:
   airflow-worker:
     <<: *airflow-common
     command: celery worker
+    container_name: airflow-worker
     healthcheck:
       # yamllint disable rule:line-length
       test:
@@ -220,6 +233,7 @@ services:
   airflow-triggerer:
     <<: *airflow-common
     command: triggerer
+    container_name: airflow-triggerer
     healthcheck:
       test: ["CMD-SHELL", 'airflow jobs check --job-type TriggererJob --hostname "$${HOSTNAME}"']
       interval: 30s
@@ -235,6 +249,7 @@ services:
   airflow-init:
     <<: *airflow-common
     entrypoint: /bin/bash
+    container_name: airflow-init
     # yamllint disable rule:line-length
     command:
       - -c
@@ -327,6 +342,7 @@ services:
       airflow-base:
         condition: service_completed_successfully
 
+
   airflow-cli:
     <<: *airflow-common
     profiles:
@@ -351,6 +367,7 @@ services:
       args:
         - DOCKER_IMAGE_AIRFLOW=${DOCKER_IMAGE_AIRFLOW}
     image: ${AIRFLOW_IMAGE_NAME}     
+    container_name: airflow-base
     command: "version"
     restart: "no"
 
@@ -376,8 +393,9 @@ services:
       airflow-init:
         condition: service_completed_successfully
 
+
   # Define local postgres to store the data
-  postgres_local:
+  postgres-local:
     image: ${DOCKER_IMAGE_POSTGRES:-postgres:18}
     ports:
       - "5432:5432"
@@ -385,11 +403,17 @@ services:
       - POSTGRES_PASSWORD=docker
       - POSTGRES_USER=docker
       - POSTGRES_DB=raw
-    container_name: "postgres_local"
+    container_name: "postgres-local"
     healthcheck:
             test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
             timeout: 20s
             retries: 10
+            interval: 10s
+    restart: unless-stopped 
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
 
   create-db:
     build:
@@ -401,11 +425,17 @@ services:
       - POSTGRES_PASSWORD=docker
       - POSTGRES_USER=docker
       - POSTGRES_DB=raw
-      - POSTGRES_HOST=postgres_local
+      - POSTGRES_HOST=postgres-local
       - POSTGRES_PORT=5432
+    volumes:
+      - postgres_data:/var/lib/postgresql
     depends_on:
-      postgres_local:
+      postgres-local:
         condition: service_healthy
+    restart: "no"
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
+
 
   dbt_docs:
     image: ${DOCKER_IMAGE_NGINX}
@@ -419,7 +449,9 @@ services:
       interval: 1m30s
       timeout: 30s
       retries: 5
-      
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
+
   great_expectations_docs:
     image: ${DOCKER_IMAGE_NGINX}
     volumes:
@@ -432,9 +464,14 @@ services:
       interval: 1m30s
       timeout: 30s
       retries: 5
-    
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
+
 volumes:
   postgres-db-volume:
-  superset-keydb-data:
-  superset_home:
+  postgres_data:  
+  vault_data:
   
+networks:
+  open-source-data-stack:
+    external: true  
