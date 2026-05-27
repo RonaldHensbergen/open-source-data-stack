@@ -1,9 +1,11 @@
-from airflow import DAG
-from airflow.operators.dummy import DummyOperator
-from airflow.operators.bash import BashOperator
+from pendulum import datetime   
+from datetime import timedelta
+
+from airflow.providers.standard.operators.empty import EmptyOperator
 from airflow.utils.task_group import TaskGroup
-from airflow.utils.dates import datetime, timedelta
+
 from dbt_dag_parser_v2 import DbtDagParser
+from airflow.sdk import dag, task
 
 DAG_ID = "model_level_dbt_dag"
 DAG_OWNER = "ronaldhensbergen"
@@ -17,48 +19,45 @@ default_args = {
     "retries": 3,
     "retry_delay": timedelta(minutes=2),
 }
+@dag(dag_id=DAG_ID,
+     schedule=None, 
+     start_date=datetime(2023, 1, 1, tz="UTC"), 
+     default_args=default_args,
+     description="A dbt wrapper for Airflow using a utility class to map the dbt DAG to Airflow tasks",
+     catchup=False)
 
+def model_level_dbt_dag():
 
-with DAG(
-    DAG_ID,
-    start_date=datetime(2021, 12, 23),
-    description="A dbt wrapper for Airflow using a utility class to map the dbt DAG to Airflow tasks",
-    schedule_interval=timedelta(days=1),
-    default_args=default_args,
-    catchup=False,
-) as dag:
+    @task.bash
+    def dbt_debug_command()-> str:
+        return f"""
+            dbt debug --profiles-dir {DBT_PROJECT_PATH} --project-dir {DBT_PROJECT_PATH}
+            """
+    dbt_debug = dbt_debug_command()
 
-    # Define DummyOperator
-    start_dummy = DummyOperator(task_id="start")
-    end_dummy = DummyOperator(task_id="end")
-    start_run_dbt_dummy = DummyOperator(task_id="start_run_dbt")
-    start_test_dbt_dummy = DummyOperator(task_id="start_test_dbt")
+    @task.bash
+    def dbt_parse_command()-> str:
+        return f"""
+            dbt parse --profiles-dir {DBT_PROJECT_PATH} --project-dir {DBT_PROJECT_PATH}
+            """
+    dbt_parse = dbt_parse_command()
+
+    @task.bash
+    def dbt_compile_command()-> str:
+        return f"""
+            dbt compile --profiles-dir {DBT_PROJECT_PATH} --project-dir {DBT_PROJECT_PATH} --vars '{{"date": " {{{{ ds }}}} " }}'
+            """
+    dbt_compile = dbt_compile_command()
+
+    # Define EmptyOperator
+    start_dummy = EmptyOperator(task_id="start")
+    end_dummy = EmptyOperator(task_id="end")
+    start_run_dbt_dummy = EmptyOperator(task_id="start_run_dbt")
+    start_test_dbt_dummy = EmptyOperator(task_id="start_test_dbt")
 
     # Validate taskgroups
     validate_taskgroup = TaskGroup("dbt_validate")
-    dbt_debug = BashOperator(
-        task_id="dbt_debug",
-        task_group=validate_taskgroup,
-        bash_command=f"""
-        dbt debug --profiles-dir {DBT_PROJECT_PATH} --project-dir {DBT_PROJECT_PATH}
-        """,
-    )
 
-    dbt_parse = BashOperator(
-        task_id="dbt_parse",
-        task_group=validate_taskgroup,
-        bash_command=f"""
-        dbt parse --profiles-dir {DBT_PROJECT_PATH} --project-dir {DBT_PROJECT_PATH}
-        """,
-    )
-
-    dbt_compile = BashOperator(
-        task_id="dbt_compile",
-        task_group=validate_taskgroup,
-        bash_command=f"""
-        dbt compile --profiles-dir {DBT_PROJECT_PATH} --project-dir {DBT_PROJECT_PATH} --vars '{{"date": " {{{{ ds }}}} " }}'
-        """,
-    )
 
     start_dummy >> dbt_debug >> dbt_parse >> dbt_compile >> start_run_dbt_dummy
 
@@ -70,16 +69,19 @@ with DAG(
         dbt_profiles_dir=DBT_PROJECT_PATH,
         dbt_target=DBT_TARGET,
     )
+    
     dbt_run_group = dag_parser.get_dbt_run_group()
     dbt_test_group = dag_parser.get_dbt_test_group()
 
     start_run_dbt_dummy >> dbt_run_group >> start_test_dbt_dummy >> dbt_test_group
 
-    dbt_docs = BashOperator(
-        task_id="dbt_docs",
-        bash_command=f"""
-        dbt docs generate --profiles-dir {DBT_PROJECT_PATH} --project-dir {DBT_PROJECT_PATH} --vars '{{"date": " {{{{ ds }}}} " }}'
-        """,
-    )
-
+ 
+    @task.bash
+    def dbt_docs_command()-> str:
+        return f"""
+            dbt docs generate --profiles-dir {DBT_PROJECT_PATH} --project-dir {DBT_PROJECT_PATH} --vars '{{"date": " {{{{ ds }}}} " }}'
+            """
+    dbt_docs = dbt_docs_command()
+   
     dbt_test_group >> dbt_docs >> end_dummy
+model_level_dbt_dag = model_level_dbt_dag()

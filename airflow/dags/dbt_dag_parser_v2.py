@@ -1,9 +1,8 @@
 import json
 import logging
 import os
-import subprocess
-from airflow.operators.bash import BashOperator
 from airflow.utils.task_group import TaskGroup
+from airflow.sdk import task
 
 
 class DbtDagParser:
@@ -30,7 +29,6 @@ class DbtDagParser:
         dbt_run_group_name="dbt_run",
         dbt_test_group_name="dbt_test",
     ):
-
         self.dag = dag
         self.dbt_global_cli_flags = dbt_global_cli_flags
         self.dbt_project_dir = dbt_project_dir
@@ -64,41 +62,44 @@ class DbtDagParser:
             dbt_verb: 'run' or 'test'
         Returns: A BashOperator task that runs the respective dbt command
         """
+        # Store instance variables in local scope for closure
+        dbt_global_cli_flags = self.dbt_global_cli_flags
+        dbt_target = self.dbt_target
+        dbt_profiles_dir = self.dbt_profiles_dir
+        dbt_project_dir = self.dbt_project_dir
 
         if dbt_verb == "run":
             model_name = node_name.split(".")[-1]
             task_group = self.dbt_run_group
 
-            dbt_task = BashOperator(
-                task_id=node_name,
-                task_group=task_group,
-                bash_command=(
-                    f"dbt {self.dbt_global_cli_flags} {dbt_verb} "
-                    f"--target {self.dbt_target} --models {model_name} "
-                    f"--profiles-dir {self.dbt_profiles_dir} --project-dir {self.dbt_project_dir} "
+            @task.bash(task_id=node_name, task_group=task_group)
+            def dbt_task_run_command() -> str:
+                return (
+                    f"dbt {dbt_global_cli_flags} run "
+                    f"--target {dbt_target} --models {model_name} "
+                    f"--profiles-dir {dbt_profiles_dir} --project-dir {dbt_project_dir} "
                     f"""--vars '{{"date": " {{{{ ds }}}} " }}'"""
-                ),
-                dag=self.dag,
-            )
+                )
+
+            dbt_task = dbt_task_run_command()
 
         elif dbt_verb == "test":
             test_name = manifest_json["nodes"][node_name]["name"]
             task_group = self.dbt_test_group
 
-            dbt_task = BashOperator(
-                task_id=node_name,
-                task_group=task_group,
-                bash_command=(
-                    f"dbt {self.dbt_global_cli_flags} {dbt_verb} "
-                    f"--target {self.dbt_target} --select {test_name} "
-                    f"--profiles-dir {self.dbt_profiles_dir} --project-dir {self.dbt_project_dir} "
+            @task.bash(task_id=node_name, task_group=task_group)
+            def dbt_task_test_command() -> str:
+                return (
+                    f"dbt {dbt_global_cli_flags} test "
+                    f"--target {dbt_target} --select {test_name} "
+                    f"--profiles-dir {dbt_profiles_dir} --project-dir {dbt_project_dir} "
                     f"""--vars '{{"date": " {{{{ ds }}}} " }}'"""
-                ),
-                dag=self.dag,
-            )
+                )
+
+            dbt_task = dbt_task_test_command()
 
         else:
-            raise RuntimeError('Please select a dbt command between "run" or "test')
+            raise RuntimeError('Please select a dbt command between "run" or "test"')
 
         # Keeping the log output, it's convenient to see when testing the python code outside of Airflow
         logging.info("Created task: %s", node_name)

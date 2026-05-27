@@ -1,9 +1,7 @@
+from pendulum import datetime
 from datetime import timedelta
 
-from airflow import DAG
-from airflow.operators.bash_operator import BashOperator
-from airflow.utils.dates import datetime
-from airflow.utils.dates import timedelta
+from airflow.sdk import dag, task
 
 DAG_ID = "project_level_dbt_dag"
 DAG_OWNER = "ronaldhensbergen"
@@ -15,29 +13,32 @@ default_args = {
     "retries": 3,
     "retry_delay": timedelta(minutes=2),
 }
+@dag(dag_id=DAG_ID,
+     schedule=None,
+     start_date=datetime(2023, 1, 1, tz="UTC"),
+     default_args=default_args,
+     description="An Airflow DAG to invoke simple dbt commands",
+     catchup=False)
+
+def project_level_dbt_dag():        
+
+    @task.bash
+    def dbt_run_command()-> str:
+        return f"""
+            dbt run --profiles-dir {DBT_PROJECT_PATH} --project-dir {DBT_PROJECT_PATH}
+            """
+
+    @task.bash
+    def dbt_test_command()-> str:
+        return f"""
+            dbt test --profiles-dir {DBT_PROJECT_PATH} --project-dir {DBT_PROJECT_PATH} --vars '{{"date": " {{{{ ds }}}} " }}'
+            """
+            
 
 
-with DAG(
-    DAG_ID,
-    start_date=datetime(2021, 12, 23),
-    description="An Airflow DAG to invoke simple dbt commands",
-    schedule_interval=timedelta(days=1),
-    default_args=default_args,
-    catchup=False,
-) as dag:
+        dbt_run = dbt_run_command()
 
-    dbt_run = BashOperator(
-        task_id="dbt_run",
-        bash_command=f"""
-        dbt run --profiles-dir {DBT_PROJECT_PATH} --project-dir {DBT_PROJECT_PATH}
-        """,
-    )
+        dbt_test = dbt_test_command()
 
-    dbt_test = BashOperator(
-        task_id="dbt_test",
-        bash_command=f"""
-        dbt test --profiles-dir {DBT_PROJECT_PATH} --project-dir {DBT_PROJECT_PATH} --vars '{{"date": " {{{{ ds }}}} " }}'
-        """,
-    )
-
-    dbt_run >> dbt_test
+        dbt_run >> dbt_test
+project_level_dbt_dag = project_level_dbt_dag()

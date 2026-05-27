@@ -1,4 +1,5 @@
-FROM apache/airflow:3.2.0-python3.12
+ARG DOCKER_IMAGE_AIRFLOW=x
+FROM ${DOCKER_IMAGE_AIRFLOW}
 
 USER root
 
@@ -8,17 +9,15 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     python3-dev \
     build-essential \
-    ntpsec \
-    && ntpd -q \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+USER airflow
 
 # Install Python dependencies
 COPY requirements.txt /tmp/requirements.txt
 
-USER airflow
 
-RUN pip install --upgrade pip setuptools wheel \
-    && pip install --no-cache-dir -r /tmp/requirements.txt
-
+RUN pip install --upgrade pip \
+    && pip install --no-cache-dir \
+    -r /tmp/requirements.txt

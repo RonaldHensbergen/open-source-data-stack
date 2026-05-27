@@ -10,5 +10,3 @@ from "raw"."dev"."stg_jaffle_shop__orders"
 where order_id is not null
 group by order_id
 having count(*) > 1
-
-

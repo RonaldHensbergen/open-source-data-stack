@@ -2,11 +2,11 @@
 # or more contributor license agreements.  See the NOTICE file
 # distributed with this work for additional information
 # regarding copyright ownership.  The ASF licenses this file
-# to you under the Apache License, Version 2.0 (the
+# to you under the Apache License, Version 3.0 (the
 # "License"); you may not use this file except in compliance
 # with the License.  You may obtain a copy of the License at
 #
-#   http://www.apache.org/licenses/LICENSE-2.0
+#   http://www.apache.org/licenses/LICENSE-1.0
 #
 # Unless required by applicable law or agreed to in writing,
 # software distributed under the License is distributed on an
@@ -49,7 +49,8 @@ x-airflow-common:
   # In order to add custom dependencies or upgrade provider distributions you can use your extended image.
   # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
   # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
-  image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:3.1.0}
+  pull_policy: never  
+  image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:3.2.0-python3.12}
   # build: .
   environment:
     &airflow-common-env
@@ -57,7 +58,7 @@ x-airflow-common:
     AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
-    AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
+    AIRFLOW__CELERY__BROKER_URL: redis://:@airflow-keydb:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
@@ -78,19 +79,49 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
+    - ${AIRFLOW_PROJ_DIR:-.}/data:/opt/airflow/data
     - ./dbt:/opt/dbt
     - ./great_expectations:/opt/great_expectations
   user: "${AIRFLOW_UID:-50000}:0"
+  networks:
+    - ${NETWORK_NAME:-open-source-data-stack}
   depends_on:
     &airflow-common-depends-on
-    redis:
+    airflow-keydb:
       condition: service_healthy
     postgres:
       condition: service_healthy
+    vault:
+      condition: service_healthy
 
 services:
+  vault:
+    image: ${DOCKER_IMAGE_VAULT:-hashicorp/vault:latest}
+    container_name: vault
+    ports:
+      - "8200:8200"
+    environment:
+      - VAULT_ADDR=http://127.0.0.1:8200
+      - VAULT_DEV_ROOT_TOKEN_ID=root-token  # For testing only!
+    cap_add:
+      - IPC_LOCK
+    healthcheck:
+      test: ["CMD", "vault", "status", "-format=json"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: always
+    volumes:
+      - vault_data:/vault/file
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
+
   postgres:
-    image: postgres:18
+    image: ${DOCKER_IMAGE_POSTGRES:-postgres:18}
+    ports: 
+      - "5433:5432"
+    container_name: postgres-airflow
     environment:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
@@ -103,12 +134,16 @@ services:
       retries: 5
       start_period: 5s
     restart: always
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
 
-  redis:
-    image: eqalpha/keydb:latest
+  # vm.overcommit_memory=0 warning can be ignored 
+  # if there is no performance degradation
+  airflow-keydb:
+    image: ${DOCKER_IMAGE_KEYDB:-eqalpha/keydb:latest}
     expose:
       - 6379
-    container_name: redis
+    container_name: airflow-keydb
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
@@ -116,10 +151,13 @@ services:
       retries: 50
       start_period: 30s
     restart: always
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
 
   airflow-apiserver:
     <<: *airflow-common
     command: api-server
+    container_name: airflow-apiserver
     ports:
       - "8080:8080"
     healthcheck:
@@ -137,6 +175,7 @@ services:
   airflow-scheduler:
     <<: *airflow-common
     command: scheduler
+    container_name: airflow-scheduler
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8974/health"]
       interval: 30s
@@ -152,12 +191,13 @@ services:
   airflow-dag-processor:
     <<: *airflow-common
     command: dag-processor
+    container_name: airflow-dag-processor
     healthcheck:
       test: ["CMD-SHELL", 'airflow jobs check --job-type DagProcessorJob --hostname "$${HOSTNAME}"']
       interval: 30s
-      timeout: 10s
+      timeout: 30s
       retries: 5
-      start_period: 30s
+      start_period: 60s
     restart: always
     depends_on:
       <<: *airflow-common-depends-on
@@ -167,6 +207,7 @@ services:
   airflow-worker:
     <<: *airflow-common
     command: celery worker
+    container_name: airflow-worker
     healthcheck:
       # yamllint disable rule:line-length
       test:
@@ -192,6 +233,7 @@ services:
   airflow-triggerer:
     <<: *airflow-common
     command: triggerer
+    container_name: airflow-triggerer
     healthcheck:
       test: ["CMD-SHELL", 'airflow jobs check --job-type TriggererJob --hostname "$${HOSTNAME}"']
       interval: 30s
@@ -207,6 +249,7 @@ services:
   airflow-init:
     <<: *airflow-common
     entrypoint: /bin/bash
+    container_name: airflow-init
     # yamllint disable rule:line-length
     command:
       - -c
@@ -295,6 +338,10 @@ services:
       _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
       _PIP_ADDITIONAL_REQUIREMENTS: ''
     user: "0:0"
+    depends_on:
+      airflow-base:
+        condition: service_completed_successfully
+
 
   airflow-cli:
     <<: *airflow-common
@@ -310,6 +357,19 @@ services:
       - airflow
     depends_on:
       <<: *airflow-common-depends-on
+      airflow-base:
+        condition: service_completed_successfully
+
+  airflow-base:
+    build:
+      context: ${AIRFLOW_PROJ_DIR:-.}
+      dockerfile: Dockerfile
+      args:
+        - DOCKER_IMAGE_AIRFLOW=${DOCKER_IMAGE_AIRFLOW}
+    image: ${AIRFLOW_IMAGE_NAME}     
+    container_name: airflow-base
+    command: "version"
+    restart: "no"
 
   # You can enable flower by adding "--profile flower" option e.g. docker-compose --profile flower up
   # or by explicitly targeted on the command line e.g. docker-compose up flower.
@@ -333,52 +393,86 @@ services:
       airflow-init:
         condition: service_completed_successfully
 
+
   # Define local postgres to store the data
-  postgres_local:
-    image: postgres:18
+  postgres-local:
+    image: ${DOCKER_IMAGE_POSTGRES:-postgres:18}
     ports:
       - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=docker
       - POSTGRES_USER=docker
       - POSTGRES_DB=raw
-    container_name: "postgres_local"
+    container_name: "postgres-local"
     healthcheck:
             test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
             timeout: 20s
             retries: 10
+            interval: 10s
+    restart: unless-stopped 
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
 
   create-db:
     build:
-      dockerfile: ./db.Dockerfile
+      context: ./db
+      dockerfile: Dockerfile
+      args:
+        - DOCKER_IMAGE_PYTHON=${DOCKER_IMAGE_PYTHON}
+    container_name: create-local-db
     environment:
       - POSTGRES_PASSWORD=docker
       - POSTGRES_USER=docker
       - POSTGRES_DB=raw
-      - POSTGRES_HOST=postgres_local
+      - POSTGRES_HOST=postgres-local
       - POSTGRES_PORT=5432
     volumes:
-      - .:/app
-    working_dir: /app
+      - postgres_data:/var/lib/postgresql
     depends_on:
-      postgres_local:
+      postgres-local:
         condition: service_healthy
+    restart: "no"
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
+
 
   dbt_docs:
-    image: dockersamples/static-site
+    image: ${DOCKER_IMAGE_NGINX}
     volumes:
       - ./dbt/jaffle_shop/target:/usr/share/nginx/html
     ports:
       - "80:80"
     container_name: "dbt_docs"
+    healthcheck:
+      test: ["CMD", "service", "nginx", "status"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
 
   great_expectations_docs:
-    image: dockersamples/static-site
+    image: ${DOCKER_IMAGE_NGINX}
     volumes:
       - ./great_expectations/uncommitted/data_docs/local_site:/usr/share/nginx/html
     ports:
       - "81:80"
     container_name: "great_expectations_docs"
+    healthcheck:
+      test: ["CMD", "service", "nginx", "status"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
 
 volumes:
   postgres-db-volume:
+  postgres_data:  
+  vault_data:
+  
+networks:
+  open-source-data-stack:
+    external: true  

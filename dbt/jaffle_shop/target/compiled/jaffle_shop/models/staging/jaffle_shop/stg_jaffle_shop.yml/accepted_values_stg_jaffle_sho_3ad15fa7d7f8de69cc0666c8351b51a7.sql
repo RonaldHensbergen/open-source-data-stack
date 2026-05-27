@@ -18,5 +18,3 @@ from all_values
 where value_field not in (
     'completed','shipped','returned','return_pending','placed'
 )
-
-

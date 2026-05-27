@@ -2,9 +2,8 @@ import json
 import logging
 import os
 import subprocess
-from airflow.operators.bash import BashOperator
 from airflow.utils.task_group import TaskGroup
-
+from airflow.sdk import dag, task
 
 class DbtDagParser:
     """
@@ -73,16 +72,21 @@ class DbtDagParser:
         else:
             task_group = self.dbt_run_group
 
-        dbt_task = BashOperator(
-            task_id=node_name,
-            task_group=task_group,
-            bash_command=(
-                f"dbt {self.dbt_global_cli_flags} {dbt_verb} "
-                f"--target {self.dbt_target} --models {model_name} "
-                f"--profiles-dir {self.dbt_profiles_dir} --project-dir {self.dbt_project_dir}"
-            ),
-            dag=self.dag,
-        )
+        @task.bash
+        def dbt_task_command(self, node_name, dbt_verb)-> str:
+            model_name = node_name.split(".")[-1]
+            return (
+                    f"dbt {self.dbt_global_cli_flags} {dbt_verb} "
+                    f"--target {self.dbt_target} --models {model_name} "
+                    f"--profiles-dir {self.dbt_profiles_dir} --project-dir {self.dbt_project_dir}"
+                )
+
+        dbt_task = dbt_task_command(node_name, dbt_verb) \
+            .set(task_id=node_name, task_group=task_group) \
+            .set_downstream([]) \
+            .set_upstream([]) \
+            .set(dag=self.dag)
+        
         # Keeping the log output, it's convenient to see when testing the python code outside of Airflow
         logging.info("Created task: %s", node_name)
         return dbt_task

@@ -1,15 +1,15 @@
-FROM python:3.12-slim
+ARG DOCKER_IMAGE_PYTHON=python:3.12-slim
+FROM ${DOCKER_IMAGE_PYTHON}
 
 RUN apt-get update && apt-get install -y gcc libpq-dev
-
-COPY . /app
-
-WORKDIR /app
 
 COPY requirements.txt /tmp/requirements.txt
 
 RUN pip install --upgrade pip \
     && pip install --no-cache-dir -r /tmp/requirements.txt
 
+COPY . /app
 
-CMD python3 db/scripts/create_db_insert_data.py
+WORKDIR /app
+
+CMD python3 scripts/create_db_insert_data.py
