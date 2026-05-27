@@ -26,14 +26,14 @@ hooks = [
   { id = "detect-secrets", args = ["--baseline", ".secrets.baseline"] },
 ]
 
-# Optional (if you commit .sql files)
-[[repos]]
-repo = "https://github.com/sqlfluff/sqlfluff"
-rev = "3.4.2"
-hooks = [
-  { id = "sqlfluff-lint" },
-  { id = "sqlfluff-fix" },
-]
+## Optional (if you commit .sql files)
+#[[repos]]
+#repo = "https://github.com/sqlfluff/sqlfluff"
+#rev = "3.4.2"
+#hooks = [
+#  { id = "sqlfluff-lint" },
+#  { id = "sqlfluff-fix" },
+#]
 
 # Optional (keep slow checks off the normal commit path)
 [[repos]]
