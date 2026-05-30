@@ -39,3 +39,4 @@ airflow/config/
 airflow/data/
 db/backups/
 superset/superset_config.py
+greate_expectations/uncommitted/validations
