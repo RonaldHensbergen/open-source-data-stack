@@ -1,5 +1,5 @@
 ARG DOCKER_IMAGE_AIRFLOW=x
-FROM ${DOCKER_IMAGE_AIRFLOW}
+FROM apache/airflow:3.2.2-python3.12
 
 USER root
 
