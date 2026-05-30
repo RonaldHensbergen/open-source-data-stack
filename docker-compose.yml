@@ -50,7 +50,7 @@ x-airflow-common:
   # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
   # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
   pull_policy: never  
-  image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:3.2.2-python3.12}
+  image: apache/airflow:3.2.2-python3.12
   # build: .
   environment:
     &airflow-common-env
@@ -96,7 +96,7 @@ x-airflow-common:
 
 services:
   vault:
-    image: ${DOCKER_IMAGE_VAULT:-hashicorp/vault:latest}
+    image: hashicorp/vault:2.0
     container_name: vault
     ports:
       - "8200:8200"
@@ -118,7 +118,7 @@ services:
       - ${NETWORK_NAME:-open-source-data-stack}
 
   postgres:
-    image: ${DOCKER_IMAGE_POSTGRES:-postgres:18}
+    image: postgres:18
     ports: 
       - "5433:5432"
     container_name: postgres-airflow
@@ -140,7 +140,7 @@ services:
   # vm.overcommit_memory=0 warning can be ignored 
   # if there is no performance degradation
   airflow-keydb:
-    image: ${DOCKER_IMAGE_KEYDB:-eqalpha/keydb:latest}
+    image: eqalpha/keydb:x86_64_v6.3.4
     expose:
       - 6379
     container_name: airflow-keydb
@@ -396,7 +396,7 @@ services:
 
   # Define local postgres to store the data
   postgres-local:
-    image: ${DOCKER_IMAGE_POSTGRES:-postgres:18}
+    image: postgres:18
     ports:
       - "5432:5432"
     environment:
@@ -439,7 +439,7 @@ services:
 
 
   dbt_docs:
-    image: ${DOCKER_IMAGE_NGINX}
+    image: nginx:1.30.2
     volumes:
       - ./dbt/jaffle_shop/target:/usr/share/nginx/html
     ports:
@@ -454,7 +454,7 @@ services:
       - ${NETWORK_NAME:-open-source-data-stack}
 
   great_expectations_docs:
-    image: ${DOCKER_IMAGE_NGINX}
+    image: nginx:1.30.2
     volumes:
       - ./great_expectations/uncommitted/data_docs/local_site:/usr/share/nginx/html
     ports:
