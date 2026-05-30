@@ -22,7 +22,7 @@ if [[ "$HASH" != "$PREV_HASH" ]]; then
   echo "Build inputs changed -> building"
   export DOCKER_BUILDKIT=1
   export COMPOSE_DOCKER_CLI_BUILD=1
-  docker compose -f docker-compose.yml build --pull=missing
+  docker compose -f docker-compose.yml build --pull
   echo "$HASH" > "$STATE_FILE"
 else
   echo "No build input changes -> skipping build"
