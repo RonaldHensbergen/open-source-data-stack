@@ -50,7 +50,7 @@ x-airflow-common:
   # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
   # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
   pull_policy: never  
-  image: apache/airflow:3.2.2-python3.12
+  image: custom-airflow:3.2.2
   # build: .
   environment:
     &airflow-common-env
@@ -360,12 +360,19 @@ services:
       airflow-base:
         condition: service_completed_successfully
 
+  python-base:
+    build:
+      context: ./python_for_tasks
+      dockerfile: Dockerfile
+    image: custom-python:3.14   
+    container_name: python-base
+    command: "python --version"
+    restart: "no"
+
   airflow-base:
     build:
       context: ${AIRFLOW_PROJ_DIR:-.}
       dockerfile: Dockerfile
-      args:
-        - DOCKER_IMAGE_AIRFLOW=apache/airflow:3.2.2-python3.12
     image: custom-airflow:3.2.2    
     container_name: airflow-base
     command: "version"
@@ -393,7 +400,6 @@ services:
       airflow-init:
         condition: service_completed_successfully
 
-
   # Define local postgres to store the data
   postgres-local:
     image: postgres:18
@@ -416,11 +422,7 @@ services:
       - ${NETWORK_NAME:-open-source-data-stack}
 
   create-db:
-    build:
-      context: ./db
-      dockerfile: Dockerfile
-      args:
-        - DOCKER_IMAGE_PYTHON=${DOCKER_IMAGE_PYTHON}
+    image: custom-python:3.14
     container_name: create-local-db
     environment:
       - POSTGRES_PASSWORD=docker
@@ -433,10 +435,38 @@ services:
     depends_on:
       postgres-local:
         condition: service_healthy
+    command: python3 scripts/create_db_insert_data.py
     restart: "no"
     networks:
       - ${NETWORK_NAME:-open-source-data-stack}
 
+  dbt-build:
+    image: custom-python:3.14
+    container_name: dbt-build
+    environment:
+      - DBT_PROFILES_DIR=/dbt
+    volumes:
+      - ./dbt:/dbt
+    depends_on:
+      dbt_docs:
+        condition: service_healthy
+    restart: "no"
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
+
+  great_expectations-build:
+    image: custom-python:3.14
+    container_name: great_expectations-build
+    environment:
+      - GE_HOME=/great_expectations
+    volumes:
+      - ./great_expectations:/great_expectations
+    depends_on:
+      great_expectations_docs:
+        condition: service_healthy
+    restart: "no"
+    networks:
+      - ${NETWORK_NAME:-open-source-data-stack}
 
   dbt_docs:
     image: nginx:1.30.2

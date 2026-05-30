@@ -2,7 +2,7 @@
 set -euo pipefail
 
 STATE_FILE=".docker-build.hash"
-CONTEXTS=(airflow db)
+CONTEXTS=(airflow db python_base)
 
 docker network create open-source-data-stack 2>/dev/null || true
 
