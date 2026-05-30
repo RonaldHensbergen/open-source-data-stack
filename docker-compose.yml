@@ -365,8 +365,8 @@ services:
       context: ${AIRFLOW_PROJ_DIR:-.}
       dockerfile: Dockerfile
       args:
-        - DOCKER_IMAGE_AIRFLOW=${DOCKER_IMAGE_AIRFLOW}
-    image: ${AIRFLOW_IMAGE_NAME}     
+        - DOCKER_IMAGE_AIRFLOW=apache/airflow:3.2.2-python3.12
+    image: custom-airflow:3.2.2    
     container_name: airflow-base
     command: "version"
     restart: "no"
