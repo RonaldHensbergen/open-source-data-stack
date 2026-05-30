@@ -1,0 +1,30 @@
+{
+  "extends": ["config:recommended"],
+  "timezone": "UTC",
+  "labels": ["dependencies"],
+  "rangeStrategy": "pin",
+  "docker": {
+    "enabled": true
+  },
+  "pip_requirements": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "groupName": "docker"
+    },
+    {
+      "matchManagers": ["pip_requirements"],
+      "groupName": "python"
+    },
+    {
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "safe updates"
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    }
+  ]
+}
