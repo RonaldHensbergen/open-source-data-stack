@@ -41,3 +41,4 @@ db/backups/
 superset/superset_config.py
 great_expectations/uncommitted/validations
 .docker-build.hash
+dbt/.user.yml

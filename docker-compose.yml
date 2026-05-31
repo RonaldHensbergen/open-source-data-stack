@@ -102,9 +102,9 @@ services:
       - "8200:8200"
     environment:
       - VAULT_ADDR=http://127.0.0.1:8200
-      - VAULT_DEV_ROOT_TOKEN_ID=root-token  # For testing only!
     cap_add:
       - IPC_LOCK
+    command: ["vault", "server", "-config=/vault/config/vault.hcl"]
     healthcheck:
       test: ["CMD", "vault", "status", "-format=json"]
       interval: 10s
@@ -443,13 +443,16 @@ services:
   dbt-build:
     image: custom-python:3.14
     container_name: dbt-build
-    environment:
-      - DBT_PROFILES_DIR=/dbt
+    working_dir: /app/dbt
     volumes:
-      - ./dbt:/dbt
-    depends_on:
-      dbt_docs:
-        condition: service_healthy
+      - ./:/app
+      - dbt_docs_site:/site
+    command: >
+      sh -c "
+      dbt docs generate &&
+      rm -rf /site/* &&
+      cp -r /app/dbt/target/* /site/
+      "
     restart: "no"
     networks:
       - ${NETWORK_NAME:-open-source-data-stack}
@@ -457,21 +460,22 @@ services:
   great_expectations-build:
     image: custom-python:3.14
     container_name: great_expectations-build
-    environment:
-      - GE_HOME=/great_expectations
+    working_dir: /app
     volumes:
-      - ./great_expectations:/great_expectations
-    depends_on:
-      great_expectations_docs:
-        condition: service_healthy
+      - ./:/app
+      - ge_docs_site:/site
+    command: >
+      sh -c "
+      gx docs build &&
+      rm -rf /site/* &&
+      cp -r /app/great_expectations/uncommitted/data_docs/local_site/* /site/
+      "
     restart: "no"
     networks:
       - ${NETWORK_NAME:-open-source-data-stack}
 
   dbt_docs:
     image: nginx:1.30.2
-    volumes:
-      - ./dbt/jaffle_shop/target:/usr/share/nginx/html
     ports:
       - "80:80"
     container_name: "dbt_docs"
@@ -502,6 +506,8 @@ volumes:
   postgres-db-volume:
   postgres_data:  
   vault_data:
+  dbt_docs_site:
+  ge_docs_site:
   
 networks:
   open-source-data-stack:
