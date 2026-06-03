@@ -44,20 +44,38 @@
 #
 # Feel free to modify this file to suit your needs.
 ---
+x-common:
+  &common
+  entrypoint: 
+    &common-entrypoint
+    ["/bin/sh", "/app/scripts/export-vault-env.sh"]
+  environment:
+    &common-env
+    # Common environment variables for all services
+    # You can add any environment variable here that should be available in all services
+    # For example, you can add environment variables for Vault or other services here
+    VAULT_ADDR: http://vault:8200
+  volumes: &common-volumes
+    - ./vault/:/app
+  secrets:
+    - vault_token
+  networks:
+    - ${NETWORK_NAME:-open-source-data-stack}
+
 x-airflow-common:
   &airflow-common
-  # In order to add custom dependencies or upgrade provider distributions you can use your extended image.
-  # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
-  # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
+  <<: *common
   pull_policy: never  
   image: custom-airflow:3.2.2
-  # build: .
+  entrypoint:
+    ["/bin/sh", "-c", "/opt/airflow/scripts/export-vault-env.sh && /entrypoint"]
   environment:
     &airflow-common-env
+    <<: *common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
     AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
-    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
-    AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow:5432/airflow
+    AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres-airflow:5432/airflow
     AIRFLOW__CELERY__BROKER_URL: redis://:@airflow-keydb:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
@@ -73,8 +91,9 @@ x-airflow-common:
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
     # The following line can be used to set a custom config file, stored in the local config folder
     AIRFLOW_CONFIG: '/opt/airflow/config/airflow.cfg'
-    AIRFLOW_PROJ_DIR: ${AIRFLOW_PROJ_DIR:- ./airflow}
+    AIRFLOW_PROJ_DIR: ${AIRFLOW_PROJ_DIR:-./airflow}
   volumes:
+    - ./vault/scripts:/opt/airflow/scripts
     - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
@@ -89,14 +108,14 @@ x-airflow-common:
     &airflow-common-depends-on
     airflow-keydb:
       condition: service_healthy
-    postgres:
+    postgres-airflow:
       condition: service_healthy
     vault:
       condition: service_healthy
 
 services:
   vault:
-    image: hashicorp/vault:2.0
+    image: hashicorp/vault:2.0.0
     container_name: vault
     ports:
       - "8200:8200"
@@ -104,20 +123,22 @@ services:
       - VAULT_ADDR=http://127.0.0.1:8200
     cap_add:
       - IPC_LOCK
-    command: ["vault", "server", "-config=/vault/config/vault.hcl"]
+    command: ["server", "-config=/vault/config/vault.hcl"]
     healthcheck:
-      test: ["CMD", "vault", "status", "-format=json"]
+      test: ["CMD-SHELL", "vault status >/dev/null 2>&1 || exit 0"]
       interval: 10s
       timeout: 10s
       retries: 5
       start_period: 30s
-    restart: always
+    restart: unless-stopped
+    entrypoint: ["vault"]
     volumes:
-      - vault_data:/vault/file
+      - vault_data:/vault/data
+      - ./vault/config/vault.hcl:/vault/config/vault.hcl:ro
     networks:
       - ${NETWORK_NAME:-open-source-data-stack}
 
-  postgres:
+  postgres-airflow:
     image: postgres:18
     ports: 
       - "5433:5432"
@@ -127,7 +148,7 @@ services:
       POSTGRES_PASSWORD: airflow
       POSTGRES_DB: airflow
     volumes:
-      - postgres-db-volume:/var/lib/postgresql
+      - postgres-airflow-data:/var/lib/postgresql
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "airflow"]
       interval: 10s
@@ -182,7 +203,7 @@ services:
       timeout: 10s
       retries: 5
       start_period: 30s
-    restart: always
+    restart: unless-stopped
     depends_on:
       <<: *airflow-common-depends-on
       airflow-init:
@@ -417,11 +438,12 @@ services:
             interval: 10s
     restart: unless-stopped 
     volumes:
-      - postgres_data:/var/lib/postgresql
+      - postgres-local-data:/var/lib/postgresql
     networks:
       - ${NETWORK_NAME:-open-source-data-stack}
 
   create-db:
+    <<: *common
     image: custom-python:3.14
     container_name: create-local-db
     environment:
@@ -431,7 +453,7 @@ services:
       - POSTGRES_HOST=postgres-local
       - POSTGRES_PORT=5432
     volumes:
-      - postgres_data:/var/lib/postgresql
+      - postgres-local-data:/var/lib/postgresql
     depends_on:
       postgres-local:
         condition: service_healthy
@@ -441,6 +463,7 @@ services:
       - ${NETWORK_NAME:-open-source-data-stack}
 
   dbt-build:
+    <<: *common
     image: custom-python:3.14
     container_name: dbt-build
     working_dir: /app/dbt
@@ -454,10 +477,14 @@ services:
       cp -r /app/dbt/target/* /site/
       "
     restart: "no"
+    depends_on:
+      - postgres-local
+      - vault
     networks:
       - ${NETWORK_NAME:-open-source-data-stack}
 
   great_expectations-build:
+    <<: *common
     image: custom-python:3.14
     container_name: great_expectations-build
     working_dir: /app
@@ -484,10 +511,13 @@ services:
       interval: 1m30s
       timeout: 30s
       retries: 5
+    volumes:
+      - dbt_docs_site:/usr/share/nginx/html:ro
     networks:
       - ${NETWORK_NAME:-open-source-data-stack}
 
   great_expectations_docs:
+    <<: *common
     image: nginx:1.30.2
     volumes:
       - ./great_expectations/uncommitted/data_docs/local_site:/usr/share/nginx/html
@@ -503,8 +533,8 @@ services:
       - ${NETWORK_NAME:-open-source-data-stack}
 
 volumes:
-  postgres-db-volume:
-  postgres_data:  
+  postgres-airflow-data:
+  postgres-local-data:  
   vault_data:
   dbt_docs_site:
   ge_docs_site:
@@ -512,3 +542,7 @@ volumes:
 networks:
   open-source-data-stack:
     external: true  
+
+secrets:
+  vault_token:
+    file: /etc/vault/VAULT_TOKEN
