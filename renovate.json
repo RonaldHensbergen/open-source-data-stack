@@ -1,26 +1,42 @@
 {
-  "extends": ["config:recommended"],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    ":separateMajorReleases",
+    ":combinePatchMinorReleases"
+  ],
   "timezone": "UTC",
   "labels": ["dependencies"],
   "rangeStrategy": "pin",
-  "docker": {
-    "enabled": true
-  },
-  "pip_requirements": {
-    "enabled": true
-  },
+  "enabledManagers": [
+    "dockerfile",
+    "docker-compose",
+    "pip_requirements",
+    "github-actions"
+  ],
   "packageRules": [
     {
       "matchDatasources": ["docker"],
-      "groupName": "docker"
+      "groupName": "docker",
+      "pinDigests": true
     },
     {
       "matchManagers": ["pip_requirements"],
       "groupName": "python"
     },
     {
-      "matchUpdateTypes": ["patch", "minor"],
-      "groupName": "safe updates"
+      "matchManagers": ["github-actions"],
+      "groupName": "github actions"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["digest"],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true,
+      "groupName": "docker digest updates",
+      "pinDigests": true
     },
     {
       "matchUpdateTypes": ["major"],

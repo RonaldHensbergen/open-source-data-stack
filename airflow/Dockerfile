@@ -1,4 +1,3 @@
-ARG DOCKER_IMAGE_AIRFLOW=x
 FROM apache/airflow:3.2.2-python3.12
 
 USER root

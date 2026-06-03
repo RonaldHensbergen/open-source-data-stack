@@ -40,4 +40,6 @@ airflow/data/
 db/backups/
 superset/superset_config.py
 great_expectations/uncommitted/validations
+dbt/.user.yml
 .docker-build.hash
+
